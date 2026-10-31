@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
+import { PawIcon } from '@/components/ui/parts';
 import { nav, site } from '@/data/site';
 import { whatsappUrl } from '@/lib/whatsapp';
 import { cn } from '@/lib/cn';
@@ -37,7 +38,7 @@ export function MobileMenu() {
           setOpen(true);
         }}
       >
-        <Menu size={18} aria-hidden="true" /> Menu
+        <PawIcon className="size-4" /> Menu
       </button>
 
       <dialog

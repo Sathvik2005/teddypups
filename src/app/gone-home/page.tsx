@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function GoneHomePage() {
   return (
     <>
-      <PageIntro eyebrow="tickets home" title="Puppies who have gone home">
+      <PageIntro title="Puppies who have gone home">
         Every puppy here has already joined a loving family. Looking for one just like them? Tell us — we&apos;ll help you find your match.
       </PageIntro>
       <div className="gutter relative mx-auto max-w-[110rem] pb-12">

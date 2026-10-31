@@ -46,13 +46,17 @@ export function ButtonLink({ variant = 'primary', className, ...props }: { varia
   return <Link className={cn('btn', variant === 'primary' && 'btn-primary', variant === 'ghost' && 'btn-ghost', variant === 'honey' && 'btn-honey', className)} {...props} />;
 }
 
-export function PageIntro({ eyebrow, title, children, mascot }: { eyebrow: string; title: string; children?: ReactNode; mascot?: ReactNode }) {
+export function PageIntro({ eyebrow, title, children, mascot }: { eyebrow?: string; title: string; children?: ReactNode; mascot?: ReactNode }) {
   return (
-    <header className="gutter mx-auto max-w-[110rem] pt-32 pb-10 text-center md:pt-40">
-      {mascot && <div className="relative mx-auto mb-4 h-28 w-40">{mascot}</div>}
-      <p className="eyebrow squiggle inline-block text-xl md:text-2xl">{eyebrow}</p>
-      <h1 className="h-section mx-auto mt-4 max-w-5xl">{title}</h1>
-      {children && <p className="mx-auto mt-5 max-w-2xl text-lg text-cocoa-soft">{children}</p>}
+    <header className="gutter mx-auto max-w-[110rem] pt-32 pb-10 md:pt-40">
+      {mascot && <div className="relative mb-4 h-28 w-52">{mascot}</div>}
+      <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-7">
+          {eyebrow && <p className="eyebrow squiggle mb-3 inline-block text-xl md:text-2xl">{eyebrow}</p>}
+          <h1 className="h-section">{title}</h1>
+        </div>
+        {children && <p className="text-lg text-cocoa-soft md:text-xl lg:col-span-5 lg:pb-3">{children}</p>}
+      </div>
     </header>
   );
 }

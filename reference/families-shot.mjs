@@ -1,0 +1,11 @@
+import { chromium } from '@playwright/test';
+const b = await chromium.launch({ channel: 'msedge' });
+const ctx = await b.newContext({ viewport: { width: 752, height: 700 }, hasTouch: false });
+const p = await ctx.newPage();
+await p.goto('http://localhost:3000/happy-families', { waitUntil: 'networkidle' });
+await p.waitForTimeout(800);
+await p.evaluate(() => scrollTo(0, 40));
+await p.waitForTimeout(700);
+await p.screenshot({ path: 'reference/shots/families-752.png', clip: { x: 0, y: 0, width: 752, height: 700 } });
+await b.close();
+console.log('ok');

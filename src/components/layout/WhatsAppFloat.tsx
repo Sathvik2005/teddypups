@@ -5,7 +5,7 @@ import { whatsappUrl } from '@/lib/whatsapp';
 /** Mobile-only sticky contact bar (the reference shows "WhatsApp us" + "Call" on small screens). */
 export function WhatsAppFloat() {
   return (
-    <div className="fixed inset-x-3 bottom-3 z-30 flex gap-2 lg:hidden">
+    <div className="fixed inset-x-3 bottom-3 z-30 flex gap-2 sm:hidden">
       <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn btn-wa btn-sm flex-1">
         <MessageCircle size={16} aria-hidden="true" /> WhatsApp us
       </a>

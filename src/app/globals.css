@@ -594,3 +594,13 @@ html[data-pup-cursor='on'] {
 }
 html[data-pup-cursor='on'] :is(a, button:not(:disabled), [role='button'], summary, label, select, .btn, [data-cursor-say]) { cursor: var(--cursor-paw-hover); }
 html[data-pup-cursor='on'] :is(input, textarea, [contenteditable='true']) { cursor: text; } /* keep the I-beam for typing */
+
+/* ---------- reference details: scalloped header edge, plank backdrop ---------- */
+.header-scallop {
+  background: radial-gradient(circle at 14px 0, rgb(255 253 248 / 0.95) 13.5px, transparent 14px) 0 0 / 28px 14px repeat-x;
+}
+.bg-planks {
+  background:
+    repeating-linear-gradient(90deg, rgb(194 98 43 / 0.07) 0 2px, transparent 2px 72px),
+    linear-gradient(180deg, #fff1d9 0%, #ffe8c2 100%);
+}

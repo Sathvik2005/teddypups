@@ -5,8 +5,8 @@ import { MascotSpeechBubble } from './MascotSpeechBubble';
 export function IntroMascot({ say, label, ...props }: { say: string; label: string } & PuppyMascotProps) {
   return (
     <>
-      <PuppyMascot {...props} label={label} className="absolute bottom-0 left-1/2 w-28 -translate-x-1/2" />
-      <MascotSpeechBubble side="left" className="top-0 left-[58%]" delay={0.9}>
+      <PuppyMascot {...props} label={label} className="absolute bottom-0 left-0 w-28" />
+      <MascotSpeechBubble side="left" className="top-0 left-[6.5rem]" delay={0.9}>
         {say}
       </MascotSpeechBubble>
     </>

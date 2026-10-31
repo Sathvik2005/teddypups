@@ -33,7 +33,7 @@ const box = 'rounded-3xl border-[3px] border-cocoa bg-milk p-6 shadow-[0_5px_0_v
 export default function ContactPage() {
   return (
     <>
-      <PageIntro eyebrow="dear TeddyPups…" title="Get in touch with us" mascot={<IntroMascot name="teddy" wave say="come say hi!" label="Teddy waving a friendly hello" />}>
+      <PageIntro title="Get in touch with us" mascot={<IntroMascot name="teddy" wave say="come say hi!" label="Teddy waving a friendly hello" />}>
         Have questions about our puppies or adoption process? Fill out the form, and our team will get back to you promptly. Whether ready to adopt or just seeking info, we&apos;d love to hear from you!
       </PageIntro>
       <div className="gutter mx-auto grid max-w-[110rem] gap-10 pb-24 lg:grid-cols-12">

@@ -48,7 +48,7 @@ const Card = ({ icon: Icon, title, body }: { icon: typeof Home; title: string; b
 export default function HowItWorksPage() {
   return (
     <>
-      <PageIntro eyebrow="the puppy passport" title="How it works" mascot={<IntroMascot name="biscuit" expression="curious" say="follow me!" label="Biscuit, a curious caramel puppy, ready to guide you" />}>
+      <PageIntro title="How it works" mascot={<IntroMascot name="biscuit" expression="curious" say="follow me!" label="Biscuit, a curious caramel puppy, ready to guide you" />}>
         Whether you choose to visit us locally or order a premium breed from overseas, TeddyPups is here to make the experience unforgettable.
       </PageIntro>
 

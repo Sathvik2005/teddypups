@@ -27,9 +27,10 @@ export function Header() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-40 h-16 transition-[background-color,box-shadow,backdrop-filter] duration-300 md:h-[76px]',
-        scrolled && 'bg-milk/85 shadow-[0_1px_0_rgb(42_23_14/0.1)] backdrop-blur-md',
+        scrolled && 'bg-milk/95 backdrop-blur-md',
       )}
     >
+      <div aria-hidden="true" className={cn('header-scallop pointer-events-none absolute inset-x-0 top-full h-[14px] transition-opacity duration-300', scrolled ? 'opacity-100' : 'opacity-0')} />
       <div className="gutter mx-auto flex h-full max-w-[110rem] items-center justify-between">
         <Link href="/" data-cursor-say="hello!" className="flex items-center gap-2.5" aria-label="TeddyPups U.A.E. — home">
           <Image src="/images/brand/logo.png" alt="" width={44} height={44} priority className="size-10 rounded-full md:size-11" />
@@ -54,7 +55,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn btn-wa btn-sm hidden lg:inline-flex">
+          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="btn btn-wa btn-sm hidden sm:inline-flex">
             WhatsApp us
           </a>
           <MobileMenu />

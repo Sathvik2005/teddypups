@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
-      <PageIntro eyebrow="have a question?" title="Questions & answers" mascot={<IntroMascot name="mochi" say="ask away!" label="Mochi, a fluffy cream puppy, ready for your questions" />}>
+      <PageIntro title="Questions & answers" mascot={<IntroMascot name="mochi" say="ask away!" label="Mochi, a fluffy cream puppy, ready for your questions" />}>
         Can&apos;t find what you&apos;re looking for? Message us on WhatsApp — our team is available 24/7.
       </PageIntro>
       <div className="gutter mx-auto max-w-3xl pb-12">
