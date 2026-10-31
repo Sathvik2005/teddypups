@@ -27,6 +27,12 @@ function Trail() {
     let py = NaN;
     let dist = 0;
     let lastT = 0;
+    let paused = !document.hasFocus() || document.hidden;
+    const pause = () => {
+      paused = true;
+      px = NaN;
+    };
+    const resume = () => (paused = document.hidden);
 
     const stamp = (x: number, y: number, angle: number) => {
       const el = prints[i++ % POOL];
@@ -48,7 +54,7 @@ function Trail() {
     };
 
     const onMove = (e: PointerEvent) => {
-      if (e.pointerType !== 'mouse') return;
+      if (e.pointerType !== 'mouse' || paused) return;
       const t = e.target as Element | null;
       if (e.buttons || t?.closest('input, textarea, select, [contenteditable="true"]')) {
         px = NaN; // selecting text / typing: no prints
@@ -72,8 +78,12 @@ function Trail() {
       py = e.clientY;
     };
     addEventListener('pointermove', onMove, { passive: true });
+    addEventListener('blur', pause);
+    addEventListener('focus', resume);
     return () => {
       removeEventListener('pointermove', onMove);
+      removeEventListener('blur', pause);
+      removeEventListener('focus', resume);
       host.remove();
     };
   }, []);

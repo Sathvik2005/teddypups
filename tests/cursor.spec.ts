@@ -16,21 +16,26 @@ test.beforeEach(async ({ page }) => {
 test.describe('desktop puppy cursor', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
-  test('follows the pointer with a trailing spring', async ({ page }) => {
+  test('chases the pointer: lags behind a jump, then settles beside it (not on top of it)', async ({ page }) => {
     await page.goto('/');
     await page.mouse.move(200, 200);
     await page.mouse.move(210, 205);
     await expect(cursor(page)).toHaveAttribute('data-on', 'true');
-    // jump the pointer in one synchronous step and read the puppy before the next frame: it must lag behind…
+    const dist = (px: number, py: number) => page.evaluate(([x, y]) => {
+      const r = (document.querySelector('[data-testid="pup-cursor"]') as HTMLElement).getBoundingClientRect();
+      return Math.hypot(r.x - x, r.y - y);
+    }, [px, py]);
+    // jump the pointer in one synchronous step and read the puppy before the next frame: it lags far behind…
     const lag = await page.evaluate(() => {
       const el = document.querySelector('[data-testid="pup-cursor"]') as HTMLElement;
-      const x0 = el.getBoundingClientRect().x;
       window.dispatchEvent(new PointerEvent('pointermove', { clientX: 1000, clientY: 500, pointerType: 'mouse' }));
-      return { x0, x1: el.getBoundingClientRect().x };
+      const r = el.getBoundingClientRect();
+      return Math.hypot(r.x - 1000, r.y - 500);
     });
-    expect(lag.x1).toBeLessThan(500);
-    // …then eases in and settles at the pointer offset (+24, +22)
-    await expect.poll(async () => Math.round((await cursor(page).boundingBox())!.x), { timeout: 3000 }).toBeGreaterThan(1015);
+    expect(lag).toBeGreaterThan(500);
+    // …then runs after it and parks a short distance away
+    await expect.poll(() => dist(1000, 500), { timeout: 4000 }).toBeLessThan(75);
+    await expect.poll(() => dist(1000, 500), { timeout: 4000 }).toBeGreaterThan(20);
   });
 
   test('default "hm?" appears only after the pointer rests, and goes away on move', async ({ page }) => {
@@ -106,6 +111,66 @@ test.describe('desktop puppy cursor', () => {
     expect(pe).toBe('none');
     await page.getByRole('link', { name: 'FAQ' }).first().click();
     await expect(page).toHaveURL(/\/faq$/);
+  });
+});
+
+test.describe('paw cursor and chase behaviour', () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+
+  test('desktop shows a paw-shaped cursor; typing areas keep the text cursor; interactive things get the paw-hover', async ({ page }) => {
+    await page.goto('/contact');
+    await page.mouse.move(300, 300);
+    await expect(page.locator('html')).toHaveAttribute('data-pup-cursor', 'on');
+    expect(await page.locator('body').evaluate(el => getComputedStyle(el).cursor)).toContain('url(');
+    expect(await page.getByLabel(/your name/i).evaluate(el => getComputedStyle(el).cursor)).toBe('text');
+    expect(await page.getByRole('button', { name: 'Send enquiry' }).evaluate(el => getComputedStyle(el).cursor)).toContain('url(');
+  });
+
+  test('leans and flips with direction, and hops while running', async ({ page }) => {
+    await page.goto('/how-it-works');
+    const tilt = page.locator('.pup-cursor__tilt');
+    await page.mouse.move(200, 400);
+    await page.mouse.move(260, 410);
+    await page.mouse.move(1200, 420, { steps: 25 });
+    const right = await tilt.evaluate(el => (el as HTMLElement).style.transform);
+    expect(right).toContain('scaleX(1)');
+    await page.mouse.move(150, 430, { steps: 25 });
+    await expect.poll(() => tilt.evaluate(el => (el as HTMLElement).style.transform), { timeout: 3000 }).toContain('scaleX(-1)');
+    await expect(page.getByTestId('pup-cursor')).toHaveAttribute('data-motion', 'run');
+    await page.mouse.move(155, 432, { steps: 2 });
+    await expect(page.getByTestId('pup-cursor')).toHaveAttribute('data-motion', 'idle', { timeout: 4000 });
+  });
+
+  test('a click leaves a paw pat that fades, and the puppy sneezes', async ({ page }) => {
+    await page.goto('/how-it-works');
+    await page.mouse.move(400, 500);
+    await page.mouse.move(420, 510);
+    await page.mouse.down();
+    await expect(bubble(page)).toHaveText('achoo!');
+    const pat = page.locator('[data-testid="pup-pat"] > *');
+    await expect.poll(() => pat.evaluate(el => Number(getComputedStyle(el).opacity))).toBeGreaterThan(0.1);
+    await page.mouse.up();
+    await expect.poll(() => pat.evaluate(el => Number(getComputedStyle(el).opacity)), { timeout: 3000 }).toBeLessThan(0.05);
+  });
+
+  test('hidden when the tab loses focus, back after the next move', async ({ page }) => {
+    await page.goto('/');
+    await page.mouse.move(300, 300);
+    await page.mouse.move(320, 310);
+    await expect(cursor(page)).toHaveAttribute('data-on', 'true');
+    await page.evaluate(() => window.dispatchEvent(new Event('blur')));
+    await expect(cursor(page)).toHaveAttribute('data-on', 'false');
+    await page.evaluate(() => window.dispatchEvent(new Event('focus')));
+    await page.mouse.move(340, 320);
+    await expect(cursor(page)).toHaveAttribute('data-on', 'true');
+  });
+
+  test('keyboard focus rings stay visible', async ({ page }) => {
+    await page.goto('/');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    const outline = await page.evaluate(() => getComputedStyle(document.activeElement!).outlineStyle);
+    expect(outline).not.toBe('none');
   });
 });
 
