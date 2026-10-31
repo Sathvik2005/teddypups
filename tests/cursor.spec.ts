@@ -261,3 +261,50 @@ test('performance: extended pointer movement keeps frame times healthy', async (
   expect(p95).toBeLessThan(50);
   expect(await page.locator('.paw-print').count()).toBeLessThanOrEqual(14);
 });
+
+test.describe('puppy cursor switch', () => {
+  test('reduced-motion visitors can opt in with the footer switch, and it persists', async ({ browser }) => {
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
+    const page = await ctx.newPage();
+    await page.goto('/', { waitUntil: 'networkidle' });
+    await expect(page.getByTestId('pup-cursor')).toHaveCount(0);
+    const toggle = page.getByRole('button', { name: /Puppy cursor: off/ });
+    await toggle.scrollIntoViewIfNeeded();
+    await expect(toggle).toContainText('reduced motion');
+    await toggle.click();
+    await expect(page.getByRole('button', { name: /Puppy cursor: on/ })).toHaveAttribute('aria-pressed', 'true');
+    await page.mouse.move(300, 300);
+    await page.mouse.move(420, 340, { steps: 10 });
+    await expect(page.getByTestId('pup-cursor')).toHaveAttribute('data-on', 'true');
+    await page.reload({ waitUntil: 'networkidle' });
+    await page.mouse.move(300, 300);
+    await page.mouse.move(420, 340, { steps: 10 });
+    await expect(page.getByTestId('pup-cursor')).toHaveAttribute('data-on', 'true');
+    await ctx.close();
+  });
+
+  test('switching it off removes the puppy, trail and paw cursor image', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/', { waitUntil: 'networkidle' });
+    await page.mouse.move(200, 200);
+    await page.mouse.move(260, 220, { steps: 6 });
+    await expect(page.getByTestId('pup-cursor')).toBeAttached();
+    const toggle = page.getByRole('button', { name: /Puppy cursor: on/ });
+    await toggle.scrollIntoViewIfNeeded();
+    await toggle.click();
+    await expect(page.getByTestId('pup-cursor')).toHaveCount(0);
+    await expect(page.locator('html')).not.toHaveAttribute('data-pup-cursor', 'on');
+  });
+
+  test('works on a narrow desktop window (700px) and hides on a phone-sized one', async ({ browser }) => {
+    for (const [w, expectOn] of [[700, true], [520, false]] as const) {
+      const ctx = await browser.newContext({ viewport: { width: w, height: 800 } });
+      const page = await ctx.newPage();
+      await page.goto('/', { waitUntil: 'networkidle' });
+      await page.mouse.move(100, 300);
+      await page.mouse.move(300, 320, { steps: 8 });
+      await expect(page.getByTestId('pup-cursor')).toHaveCount(expectOn ? 1 : 0);
+      await ctx.close();
+    }
+  });
+});

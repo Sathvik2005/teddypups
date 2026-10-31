@@ -50,7 +50,7 @@ function Engine() {
       vx = 0,
       vy = 0; // puppy (feet position)
     let seen = false;
-    let paused = !document.hasFocus() || document.hidden;
+    let paused = document.hidden;
     let lastMove = performance.now();
     let restSaid = false;
     let hover: Reaction = { state: 'idle' };
@@ -143,13 +143,15 @@ function Engine() {
       last = now;
       const t = now / 1000;
 
-      // chase: pull toward the pointer only while farther than REST (a pup waiting beside you doesn't pile on top of you)
+      // chase: spring toward a ring of radius REST around the pointer (a pup waiting beside you, not on top of you)
       const dx = px - x;
       const dy = py - y;
       const dist = Math.hypot(dx, dy) || 1;
-      const want = Math.max(0, dist - REST);
-      vx += ((dx / dist) * want * K - vx * C) * dt;
-      vy += ((dy / dist) * want * K - vy * C) * dt;
+      // …and if momentum carries it inside the ring, nudge it back out (softer), so it never ends up sitting on the pointer
+      const err = dist - REST;
+      const pull = Math.abs(err) < 4 ? 0 : err > 0 ? err * K : err * K * 0.6;
+      vx += ((dx / dist) * pull - vx * C) * dt;
+      vy += ((dy / dist) * pull - vy * C) * dt;
       const sp = Math.hypot(vx, vy);
       if (sp > MAX_SPEED) {
         vx *= MAX_SPEED / sp;

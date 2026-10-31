@@ -27,7 +27,7 @@ function Trail() {
     let py = NaN;
     let dist = 0;
     let lastT = 0;
-    let paused = !document.hasFocus() || document.hidden;
+    let paused = document.hidden;
     const pause = () => {
       paused = true;
       px = NaN;
@@ -45,11 +45,11 @@ function Trail() {
       el.animate(
         [
           { opacity: 0, transform: `${at} scale(0.6)` },
-          { opacity: 0.36, transform: `${at} scale(1)`, offset: 0.14 },
-          { opacity: 0.28, transform: `${at} scale(1)`, offset: 0.55 },
+          { opacity: 0.5, transform: `${at} scale(1)`, offset: 0.14 },
+          { opacity: 0.4, transform: `${at} scale(1)`, offset: 0.55 },
           { opacity: 0, transform: `${at} scale(0.45)` },
         ],
-        { duration: 1700, easing: 'ease-out', fill: 'both' },
+        { duration: 2000, easing: 'ease-out', fill: 'both' },
       );
     };
 

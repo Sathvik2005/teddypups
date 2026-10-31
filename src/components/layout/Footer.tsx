@@ -4,6 +4,7 @@ import { footerExplore, site } from '@/data/site';
 import { whatsappUrl } from '@/lib/whatsapp';
 import { PuppyMascot } from '@/components/mascot/PuppyMascot';
 import { PupStop } from '@/components/ui/parts';
+import { CursorToggle } from '@/components/cursor/CursorToggle';
 
 function Basket() {
   return (
@@ -78,6 +79,7 @@ export function Footer() {
       <div className="border-t border-milk/15">
         <p className="gutter mx-auto flex max-w-[110rem] flex-wrap items-center justify-between gap-2 py-5 text-sm text-milk/70">
           <span>© 2026 {site.name}</span>
+          <CursorToggle />
           <span className="eyebrow text-base !text-honey">{site.tagline}</span>
         </p>
       </div>
