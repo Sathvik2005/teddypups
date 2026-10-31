@@ -1,0 +1,137 @@
+[
+ {
+  "slug": "copper-male",
+  "breed": "Cavapoo",
+  "gender": "Boy",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 4,
+  "video": false
+ },
+ {
+  "slug": "korean-teacup-maltipoo-female",
+  "breed": "Korean Teacup Maltipoo",
+  "gender": "Girl",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 11,
+  "video": true
+ },
+ {
+  "slug": "korean-teacup-pomeranian-1",
+  "breed": "Korean Teacup Pomeranian",
+  "gender": "Girl",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 2,
+  "video": false
+ },
+ {
+  "slug": "korean-teacup-pomeranian-male",
+  "breed": "Korean Teacup Pomeranian",
+  "gender": "Boy",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 4,
+  "video": false
+ },
+ {
+  "slug": "korean-teacup-pomeranian",
+  "breed": "Korean Teacup Pomeranian",
+  "gender": "Girl",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 2,
+  "video": false
+ },
+ {
+  "slug": "korean-teacup-poodle-female",
+  "breed": "Korean Teacup Poodle",
+  "gender": "Girl",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 4,
+  "video": false
+ },
+ {
+  "slug": "maltipoo-cavapoo-male",
+  "breed": "Maltipoo & Cavapoo",
+  "gender": "Boy",
+  "age": "3 months Maltipoo & 2 months Cavapoo",
+  "where": "Imported for you",
+  "n": 3,
+  "video": true
+ },
+ {
+  "slug": "maltipoo-female-1",
+  "breed": "Maltipoo",
+  "gender": "Girl",
+  "age": "2.5 months",
+  "where": "Imported for you",
+  "n": 4,
+  "video": false
+ },
+ {
+  "slug": "maltipoo-female-2",
+  "breed": "Maltipoo",
+  "gender": "Girl",
+  "age": "3 months",
+  "where": "Imported for you",
+  "n": 7,
+  "video": true
+ },
+ {
+  "slug": "maltipoo-female",
+  "breed": "Maltipoo",
+  "gender": "Girl",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 4,
+  "video": false
+ },
+ {
+  "slug": "maltipoo-max-male",
+  "breed": "Maltipoo",
+  "gender": "Boy",
+  "age": "3 months",
+  "where": "Imported for you",
+  "n": 2,
+  "video": true
+ },
+ {
+  "slug": "pomeranian-female",
+  "breed": "Pomeranian",
+  "gender": "Girl",
+  "age": "3 months",
+  "where": "Imported for you",
+  "n": 3,
+  "video": false
+ },
+ {
+  "slug": "shitzu-female",
+  "breed": "Shih Tzu",
+  "gender": "Girl",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 2,
+  "video": false
+ },
+ {
+  "slug": "shitzu-male",
+  "breed": "Shih Tzu",
+  "gender": "Boy",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 2,
+  "video": false
+ },
+ {
+  "slug": "toy-poodle-male-female",
+  "breed": "Toy Poodle",
+  "gender": "Boy & girl",
+  "age": "2 months",
+  "where": "Imported for you",
+  "n": 3,
+  "video": false
+ }
+]

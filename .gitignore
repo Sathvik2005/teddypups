@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.env*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+test-results
+playwright-report
+reference/screenshots
+reference/crops
+reference/js
+reference/*.html
+.vercel
+reference/shots
+reference/probe-output.txt
+reference/js

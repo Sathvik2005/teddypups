@@ -1,0 +1,1366 @@
+{
+ "390": {
+  "body": {
+   "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+   "fontSize": "17px",
+   "fontWeight": "400",
+   "lineHeight": "27.2px",
+   "letterSpacing": "normal",
+   "color": "rgb(42, 23, 14)",
+   "backgroundColor": "rgb(255, 253, 248)",
+   "borderRadius": "0px",
+   "padding": "0px",
+   "border": "0px solid rgb(42, 23, 14)",
+   "boxShadow": "none"
+  },
+  "bodyBgImage": "none",
+  "header": {
+   "box": {
+    "x": 0,
+    "y": 0,
+    "w": 375,
+    "h": 64
+   },
+   "position": "fixed",
+   "backgroundColor": "rgba(0, 0, 0, 0)",
+   "borderBottom": "0px solid rgb(42, 23, 14)",
+   "backdropFilter": "none"
+  },
+  "h1": {
+   "text": "Premium teacup\npuppies in Dubai",
+   "box": {
+    "x": 16,
+    "y": 144,
+    "w": 343,
+    "h": 77
+   },
+   "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+   "fontSize": "41.6px",
+   "fontWeight": "800",
+   "lineHeight": "38.272px",
+   "letterSpacing": "-1.04px",
+   "color": "rgb(42, 23, 14)",
+   "backgroundColor": "rgba(0, 0, 0, 0)",
+   "borderRadius": "0px",
+   "padding": "0px",
+   "border": "0px solid rgb(42, 23, 14)",
+   "boxShadow": "none"
+  },
+  "h2s": [
+   {
+    "text": "Meet the pups",
+    "box": {
+     "x": 16,
+     "y": 920,
+     "w": 343,
+     "h": 38
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "41.6px",
+    "fontWeight": "800",
+    "lineHeight": "38.272px",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Two ways to meet your puppy",
+    "box": {
+     "x": 16,
+     "y": 10077,
+     "w": 343,
+     "h": 77
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "41.6px",
+    "fontWeight": "800",
+    "lineHeight": "38.272px",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Your puppy journey",
+    "box": {
+     "x": 16,
+     "y": 11358,
+     "w": 343,
+     "h": 38
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "41.6px",
+    "fontWeight": "800",
+    "lineHeight": "38.272px",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Why families trust TeddyPups",
+    "box": {
+     "x": 51,
+     "y": 12952,
+     "w": 267,
+     "h": 66
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "35.2px",
+    "fontWeight": "800",
+    "lineHeight": "32.384px",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Happy families & puppies",
+    "box": {
+     "x": 16,
+     "y": 14134,
+     "w": 343,
+     "h": 77
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "41.6px",
+    "fontWeight": "800",
+    "lineHeight": "38.272px",
+    "color": "rgb(255, 253, 248)"
+   },
+   {
+    "text": "Questions, answered",
+    "box": {
+     "x": 16,
+     "y": 15871,
+     "w": 343,
+     "h": 77
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "41.6px",
+    "fontWeight": "800",
+    "lineHeight": "38.272px",
+    "color": "rgb(255, 253, 248)"
+   },
+   {
+    "text": "Ready to meet your new best friend?",
+    "box": {
+     "x": 16,
+     "y": 16834,
+     "w": 343,
+     "h": 77
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "41.6px",
+    "fontWeight": "800",
+    "lineHeight": "38.272px",
+    "color": "rgb(255, 253, 248)"
+   },
+   {
+    "text": "Explore",
+    "box": {
+     "x": 16,
+     "y": 18001,
+     "w": 343,
+     "h": 28
+    },
+    "fontFamily": "\"Shantell Sans\", \"Shantell Sans Fallback\", ui-rounded, \"Comic Sans MS\", cursive",
+    "fontSize": "18px",
+    "fontWeight": "500",
+    "lineHeight": "28px",
+    "color": "rgb(242, 190, 107)"
+   },
+   {
+    "text": "Say hello",
+    "box": {
+     "x": 16,
+     "y": 18343,
+     "w": 343,
+     "h": 28
+    },
+    "fontFamily": "\"Shantell Sans\", \"Shantell Sans Fallback\", ui-rounded, \"Comic Sans MS\", cursive",
+    "fontSize": "18px",
+    "fontWeight": "500",
+    "lineHeight": "28px",
+    "color": "rgb(242, 190, 107)"
+   }
+  ],
+  "sections": [
+   {
+    "cls": "tp-scene tp-hero",
+    "box": {
+     "x": 0,
+     "y": 64,
+     "w": 375,
+     "h": 780
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-meet",
+    "box": {
+     "x": 0,
+     "y": 844,
+     "w": 375,
+     "h": 9140
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-paths",
+    "box": {
+     "x": 0,
+     "y": 9984,
+     "w": 375,
+     "h": 1289
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-chat",
+    "box": {
+     "x": 0,
+     "y": 11273,
+     "w": 375,
+     "h": 1539
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-passport",
+    "box": {
+     "x": 0,
+     "y": 12813,
+     "w": 375,
+     "h": 1262
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-dusk",
+    "box": {
+     "x": 0,
+     "y": 14075,
+     "w": 375,
+     "h": 1712
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-night",
+    "box": {
+     "x": 0,
+     "y": 15786,
+     "w": 375,
+     "h": 964
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-home",
+    "box": {
+     "x": 0,
+     "y": 16750,
+     "w": 375,
+     "h": 992
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ],
+  "buttons": [
+   {
+    "text": "TeddyPups",
+    "box": {
+     "x": 16,
+     "y": 11,
+     "w": 139,
+     "h": 42
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "400",
+    "lineHeight": "27.2px",
+    "letterSpacing": "normal",
+    "color": "rgb(42, 23, 14)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "999px",
+    "padding": "0px",
+    "border": "0px solid rgb(42, 23, 14)",
+    "boxShadow": "none"
+   },
+   {
+    "text": "WhatsApp us",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "15.2px",
+    "fontWeight": "650",
+    "lineHeight": "16.72px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(31, 122, 77)",
+    "borderRadius": "999px",
+    "padding": "9.6px 21.6px",
+    "border": "0px solid rgb(255, 255, 255)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "WhatsApp us",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(31, 122, 77)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 255, 255)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "View available puppies",
+    "box": {
+     "x": 73,
+     "y": 340,
+     "w": 229,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 253, 248)",
+    "backgroundColor": "rgb(162, 74, 26)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 253, 248)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "Enquire on WhatsApp",
+    "box": {
+     "x": 75,
+     "y": 404,
+     "w": 225,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(42, 23, 14)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "2px solid rgb(42, 23, 14)",
+    "boxShadow": "none"
+   },
+   {
+    "text": "See all available puppies",
+    "box": {
+     "x": 16,
+     "y": 1044,
+     "w": 239,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 253, 248)",
+    "backgroundColor": "rgb(162, 74, 26)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 253, 248)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "Meet local puppies",
+    "box": {
+     "x": 16,
+     "y": 10633,
+     "w": 198,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 253, 248)",
+    "backgroundColor": "rgb(162, 74, 26)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 253, 248)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "See imported puppies",
+    "box": {
+     "x": 16,
+     "y": 11154,
+     "w": 222,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 253, 248)",
+    "backgroundColor": "rgb(162, 74, 26)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 253, 248)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   }
+  ],
+  "nav": [
+   {
+    "text": "Home",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(162, 74, 26)"
+   },
+   {
+    "text": "Puppies",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Happy families",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "How it works",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "FAQ",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Visit & contact",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Home",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "42.9px",
+    "fontWeight": "800",
+    "color": "rgb(162, 74, 26)"
+   },
+   {
+    "text": "Puppies",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "42.9px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Happy families",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "42.9px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "How it works",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "42.9px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "FAQ",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "42.9px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Visit & contact",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "42.9px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   }
+  ],
+  "footer": {
+   "box": {
+    "x": 0,
+    "y": 17742,
+    "w": 375,
+    "h": 1303
+   },
+   "backgroundColor": "rgb(36, 19, 11)",
+   "color": "rgb(255, 253, 248)"
+  },
+  "cards": [
+   {
+    "box": {
+     "x": -8,
+     "y": 616,
+     "w": 75,
+     "h": 109
+    },
+    "html": "<a class=\"tp-lineup__pup\" data-pup-friend=\"true\" aria-label=\"Meet Max, Maltipoo\" href=\"/puppies/maltipoo-max-male\"><span class=\"tp-lineup__photo\"><img alt=\"Max, male Maltipoo puppy\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; object-position: 53.8% 44.3%; color: transparent; background-color: rgb(120, 88, 56);\" sizes=\"11rem\" srcset=\"/_next/image?url=%2Fmedia%2FZ0ToauDx7Eve%2F5fffe4d022%2Fb942a5_4b8cfb8204d24eadaf524332aba1dc15-mv2.webp&amp;w=32&amp;q=75 32w, /_next/image?url=%2Fmedia%2FZ0ToauDx7Eve%2F5fffe4d022%2Fb942a5_4b8cfb8204d24eadaf524332aba1dc15-mv2.webp&amp;w=48&amp;q=75 48w, /_next/image?url=%2Fmedia%2FZ0ToauDx7Eve%2F5fffe4d022%2Fb942a5_4b8cfb8204d24eadaf524332aba1dc15-mv2.webp&amp;w=64&amp;q=75 64w, /_next/image?url=%2Fmedia%2FZ0ToauDx7Eve%2F5fffe4d022%2Fb942a5_4b8cfb"
+   },
+   {
+    "box": {
+     "x": 43,
+     "y": 607,
+     "w": 72,
+     "h": 106
+    },
+    "html": "<a class=\"tp-lineup__pup\" data-pup-friend=\"true\" aria-label=\"Meet Korean Teacup Maltipoo, Korean Teacup Maltipoo\" href=\"/puppies/korean-teacup-maltipoo-female\"><span class=\"tp-lineup__photo\"><img alt=\"Female Korean Teacup Maltipoo puppy\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; object-position: 52.5% 42.6%; color: transparent; background-color: rgb(232, 232, 232);\" sizes=\"11rem\" srcset=\"/_next/image?url=%2Fmedia%2FgAaGwoGej2g6%2F5523e884dd%2Fb942a5_50f0ae67c9ff437d911597d52a9e63b3-mv2.jpg&amp;w=32&amp;q=75 32w, /_next/image?url=%2Fmedia%2FgAaGwoGej2g6%2F5523e884dd%2Fb942a5_50f0ae67c9ff437d911597d52a9e63b3-mv2.jpg&amp;w=48&amp;q=75 48w, /_next/image?url=%2Fmedia%2FgAaGwoGej2g6%2F5523e884dd%2Fb942a5_50f0ae67c9ff437d911597d52a9e63b3-mv2.jpg&amp;w=64&amp;q=75 64w, /_next/image?u"
+   }
+  ],
+  "actor": [
+   {
+    "tag": "DIV",
+    "cls": "pup-stop tp-hero__teddy",
+    "html": "<div data-pup-stop=\"true\" data-pose=\"peek\" data-facing=\"right\" data-act=\"peekaboo\" data-behind=\"true\" data-lane=\"true\" class=\"pup-stop tp-hero__teddy\"><div class=\"pup-buddy \" data-facing=\"right\" data-live=\"\"><svg viewBox=\"0 0 300 240\" role=\"img\" aria-label=\"Teddy, the TeddyPups puppy, peeking over the quilt\" focusable=\"false\" style=\"overflow: visible;\"><g data-p=\"root\"><ellipse data-p=\"shadow\" cx=\"150\" cy=\"230\" rx=\"92\" ry=\"7\" fill=\"#2a170e\" opacity=\"0\" transform=\"translate(0 0) scale(1 1)\" style=\"transform-box: fill-box; transform-origin: center center;\"></ellipse><g data-p=\"body\" transform=\"translate(0 0) rotate(0 196 206) translate(196 0) scale(1 1) translate(-196 0)\" opacity=\"0\"><g data-p=\"bf\" transform=\"translate(94 192) rotate(0)\" opacity=\"1\"><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14Z\" fill=\"#e4a352\"></path><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14\" stroke=\"#2a170e\" stroke-wid",
+    "css": {
+     "position": "absolute",
+     "width": "234px",
+     "height": "187.188px",
+     "transition": "all",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "DIV",
+    "cls": "pup-buddy ",
+    "html": "<div class=\"pup-buddy \" data-facing=\"right\" data-live=\"\"><svg viewBox=\"0 0 300 240\" role=\"img\" aria-label=\"Teddy, the TeddyPups puppy, peeking over the quilt\" focusable=\"false\" style=\"overflow: visible;\"><g data-p=\"root\"><ellipse data-p=\"shadow\" cx=\"150\" cy=\"230\" rx=\"92\" ry=\"7\" fill=\"#2a170e\" opacity=\"0\" transform=\"translate(0 0) scale(1 1)\" style=\"transform-box: fill-box; transform-origin: center center;\"></ellipse><g data-p=\"body\" transform=\"translate(0 0) rotate(0 196 206) translate(196 0) scale(1 1) translate(-196 0)\" opacity=\"0\"><g data-p=\"bf\" transform=\"translate(94 192) rotate(0)\" opacity=\"1\"><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14Z\" fill=\"#e4a352\"></path><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14\" stroke=\"#2a170e\" stroke-width=\"3.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"none\"></path><path d=\"M-3.5 29 v5 M4.5 29 v5\" stroke=\"#2a170e\" stroke-width=\"2.4\" stroke-",
+    "css": {
+     "position": "relative",
+     "width": "234px",
+     "height": "187.188px",
+     "transition": "all",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "SPAN",
+    "cls": "pup-bubble",
+    "html": "<span aria-hidden=\"true\" class=\"pup-bubble\" data-show=\"false\"></span>",
+    "css": {
+     "position": "absolute",
+     "width": "31.1875px",
+     "height": "14.3906px",
+     "transition": "scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.18s ease-out",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "DIV",
+    "cls": "pup-stop tp-meet__teddy",
+    "html": "<div data-pup-stop=\"true\" data-pose=\"sit\" data-facing=\"right\" class=\"pup-stop tp-meet__teddy\"><div class=\"pup-buddy \" data-facing=\"right\" data-live=\"\"><svg viewBox=\"0 0 300 240\" aria-hidden=\"true\" focusable=\"false\" style=\"overflow: visible;\"><g data-p=\"root\"><ellipse data-p=\"shadow\" cx=\"150\" cy=\"230\" rx=\"92\" ry=\"7\" fill=\"#2a170e\" opacity=\"0.12\" transform=\"translate(0 0) scale(1 1)\" style=\"transform-box: fill-box; transform-origin: center center;\"></ellipse><g data-p=\"body\" transform=\"translate(0 -2) rotate(-24 196 206) translate(196 0) scale(1 1) translate(-196 0)\" opacity=\"1\"><g data-p=\"bf\" transform=\"translate(94 192) rotate(0)\" opacity=\"0\"><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14Z\" fill=\"#e4a352\"></path><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14\" stroke=\"#2a170e\" stroke-width=\"3.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"none\"></path><path d=\"M-3.5 29 v5 M4.5 29 v5\"",
+    "css": {
+     "position": "absolute",
+     "width": "128px",
+     "height": "auto",
+     "transition": "all",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "DIV",
+    "cls": "pup-buddy ",
+    "html": "<div class=\"pup-buddy \" data-facing=\"right\" data-live=\"\"><svg viewBox=\"0 0 300 240\" aria-hidden=\"true\" focusable=\"false\" style=\"overflow: visible;\"><g data-p=\"root\"><ellipse data-p=\"shadow\" cx=\"150\" cy=\"230\" rx=\"92\" ry=\"7\" fill=\"#2a170e\" opacity=\"0.12\" transform=\"translate(0 0) scale(1 1)\" style=\"transform-box: fill-box; transform-origin: center center;\"></ellipse><g data-p=\"body\" transform=\"translate(0 -2) rotate(-24 196 206) translate(196 0) scale(1 1) translate(-196 0)\" opacity=\"1\"><g data-p=\"bf\" transform=\"translate(94 192) rotate(0)\" opacity=\"0\"><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14Z\" fill=\"#e4a352\"></path><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14\" stroke=\"#2a170e\" stroke-width=\"3.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"none\"></path><path d=\"M-3.5 29 v5 M4.5 29 v5\" stroke=\"#2a170e\" stroke-width=\"2.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"none",
+    "css": {
+     "position": "relative",
+     "width": "100%",
+     "height": "auto",
+     "transition": "all",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "SPAN",
+    "cls": "pup-bubble",
+    "html": "<span aria-hidden=\"true\" class=\"pup-bubble\" data-show=\"false\"></span>",
+    "css": {
+     "position": "absolute",
+     "width": "auto",
+     "height": "auto",
+     "transition": "scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.18s ease-out",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   }
+  ]
+ },
+ "1440": {
+  "body": {
+   "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+   "fontSize": "17px",
+   "fontWeight": "400",
+   "lineHeight": "27.2px",
+   "letterSpacing": "normal",
+   "color": "rgb(42, 23, 14)",
+   "backgroundColor": "rgb(255, 253, 248)",
+   "borderRadius": "0px",
+   "padding": "0px",
+   "border": "0px solid rgb(42, 23, 14)",
+   "boxShadow": "none"
+  },
+  "bodyBgImage": "none",
+  "header": {
+   "box": {
+    "x": 0,
+    "y": 0,
+    "w": 1425,
+    "h": 76
+   },
+   "position": "fixed",
+   "backgroundColor": "rgba(0, 0, 0, 0)",
+   "borderBottom": "0px solid rgb(42, 23, 14)",
+   "backdropFilter": "none"
+  },
+  "h1": {
+   "text": "Premium teacup\npuppies in Dubai",
+   "box": {
+    "x": 231,
+    "y": 169,
+    "w": 962,
+    "h": 182
+   },
+   "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+   "fontSize": "99px",
+   "fontWeight": "800",
+   "lineHeight": "91.08px",
+   "letterSpacing": "-2.475px",
+   "color": "rgb(42, 23, 14)",
+   "backgroundColor": "rgba(0, 0, 0, 0)",
+   "borderRadius": "0px",
+   "padding": "0px",
+   "border": "0px solid rgb(42, 23, 14)",
+   "boxShadow": "none"
+  },
+  "h2s": [
+   {
+    "text": "Meet the pups",
+    "box": {
+     "x": 56,
+     "y": 1003,
+     "w": 547,
+     "h": 85
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "92.16px",
+    "fontWeight": "800",
+    "lineHeight": "84.7872px",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Two ways to meet your puppy",
+    "box": {
+     "x": 324,
+     "y": 5125,
+     "w": 776,
+     "h": 170
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "92.16px",
+    "fontWeight": "800",
+    "lineHeight": "84.7872px",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Your puppy journey",
+    "box": {
+     "x": 56,
+     "y": 6223,
+     "w": 718,
+     "h": 170
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "92.16px",
+    "fontWeight": "800",
+    "lineHeight": "84.7872px",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Why families trust TeddyPups",
+    "box": {
+     "x": 186,
+     "y": 8004,
+     "w": 398,
+     "h": 175
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "60.48px",
+    "fontWeight": "800",
+    "lineHeight": "55.6416px",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Happy families & puppies",
+    "box": {
+     "x": 56,
+     "y": 8816,
+     "w": 781,
+     "h": 170
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "92.16px",
+    "fontWeight": "800",
+    "lineHeight": "84.7872px",
+    "color": "rgb(255, 253, 248)"
+   },
+   {
+    "text": "Questions, answered",
+    "box": {
+     "x": 56,
+     "y": 10418,
+     "w": 505,
+     "h": 170
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "92.16px",
+    "fontWeight": "800",
+    "lineHeight": "84.7872px",
+    "color": "rgb(255, 253, 248)"
+   },
+   {
+    "text": "Ready to meet your new best friend?",
+    "box": {
+     "x": 265,
+     "y": 11054,
+     "w": 896,
+     "h": 170
+    },
+    "fontFamily": "Fraunces, \"Fraunces Fallback\", ui-serif, Georgia, serif",
+    "fontSize": "92.16px",
+    "fontWeight": "800",
+    "lineHeight": "84.7872px",
+    "color": "rgb(255, 253, 248)"
+   },
+   {
+    "text": "Explore",
+    "box": {
+     "x": 736,
+     "y": 12097,
+     "w": 292,
+     "h": 28
+    },
+    "fontFamily": "\"Shantell Sans\", \"Shantell Sans Fallback\", ui-rounded, \"Comic Sans MS\", cursive",
+    "fontSize": "18px",
+    "fontWeight": "500",
+    "lineHeight": "28px",
+    "color": "rgb(242, 190, 107)"
+   },
+   {
+    "text": "Say hello",
+    "box": {
+     "x": 1077,
+     "y": 12097,
+     "w": 292,
+     "h": 28
+    },
+    "fontFamily": "\"Shantell Sans\", \"Shantell Sans Fallback\", ui-rounded, \"Comic Sans MS\", cursive",
+    "fontSize": "18px",
+    "fontWeight": "500",
+    "lineHeight": "28px",
+    "color": "rgb(242, 190, 107)"
+   }
+  ],
+  "sections": [
+   {
+    "cls": "tp-scene tp-hero",
+    "box": {
+     "x": 0,
+     "y": 76,
+     "w": 1425,
+     "h": 824
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-meet",
+    "box": {
+     "x": 0,
+     "y": 900,
+     "w": 1425,
+     "h": 4126
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-paths",
+    "box": {
+     "x": 0,
+     "y": 5026,
+     "w": 1425,
+     "h": 1107
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-chat",
+    "box": {
+     "x": 0,
+     "y": 6133,
+     "w": 1425,
+     "h": 1697
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-passport",
+    "box": {
+     "x": 0,
+     "y": 7830,
+     "w": 1425,
+     "h": 922
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-dusk",
+    "box": {
+     "x": 0,
+     "y": 8753,
+     "w": 1425,
+     "h": 1575
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-night",
+    "box": {
+     "x": 0,
+     "y": 10328,
+     "w": 1425,
+     "h": 636
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "cls": "tp-scene tp-home",
+    "box": {
+     "x": 0,
+     "y": 10964,
+     "w": 1425,
+     "h": 1021
+    },
+    "bg": "rgba(0, 0, 0, 0)"
+   }
+  ],
+  "buttons": [
+   {
+    "text": "TeddyPups",
+    "box": {
+     "x": 56,
+     "y": 14,
+     "w": 164,
+     "h": 48
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "400",
+    "lineHeight": "27.2px",
+    "letterSpacing": "normal",
+    "color": "rgb(42, 23, 14)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "999px",
+    "padding": "0px",
+    "border": "0px solid rgb(42, 23, 14)",
+    "boxShadow": "none"
+   },
+   {
+    "text": "WhatsApp us",
+    "box": {
+     "x": 1233,
+     "y": 16,
+     "w": 136,
+     "h": 44
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "15.2px",
+    "fontWeight": "650",
+    "lineHeight": "16.72px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(31, 122, 77)",
+    "borderRadius": "999px",
+    "padding": "9.6px 21.6px",
+    "border": "0px solid rgb(255, 255, 255)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "WhatsApp us",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 255, 255)",
+    "backgroundColor": "rgb(31, 122, 77)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 255, 255)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "View available puppies",
+    "box": {
+     "x": 480,
+     "y": 452,
+     "w": 229,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 253, 248)",
+    "backgroundColor": "rgb(162, 74, 26)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 253, 248)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "Enquire on WhatsApp",
+    "box": {
+     "x": 721,
+     "y": 452,
+     "w": 225,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(42, 23, 14)",
+    "backgroundColor": "rgba(0, 0, 0, 0)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "2px solid rgb(42, 23, 14)",
+    "boxShadow": "none"
+   },
+   {
+    "text": "See all available puppies",
+    "box": {
+     "x": 1130,
+     "y": 1078,
+     "w": 239,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 253, 248)",
+    "backgroundColor": "rgb(162, 74, 26)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 253, 248)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "Meet local puppies",
+    "box": {
+     "x": 400,
+     "y": 5846,
+     "w": 198,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 253, 248)",
+    "backgroundColor": "rgb(162, 74, 26)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 253, 248)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   },
+   {
+    "text": "See imported puppies",
+    "box": {
+     "x": 828,
+     "y": 5873,
+     "w": 222,
+     "h": 52
+    },
+    "fontFamily": "Figtree, \"Figtree Fallback\", ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "17px",
+    "fontWeight": "650",
+    "lineHeight": "18.7px",
+    "letterSpacing": "normal",
+    "color": "rgb(255, 253, 248)",
+    "backgroundColor": "rgb(162, 74, 26)",
+    "borderRadius": "999px",
+    "padding": "13.6px 25.6px",
+    "border": "0px solid rgb(255, 253, 248)",
+    "boxShadow": "rgb(42, 23, 14) 0px 8px 0px -2.4px"
+   }
+  ],
+  "nav": [
+   {
+    "text": "Home",
+    "box": {
+     "x": 411,
+     "y": 16,
+     "w": 47,
+     "h": 43
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(162, 74, 26)"
+   },
+   {
+    "text": "Puppies",
+    "box": {
+     "x": 491,
+     "y": 16,
+     "w": 61,
+     "h": 43
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Happy families",
+    "box": {
+     "x": 585,
+     "y": 16,
+     "w": 112,
+     "h": 43
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "How it works",
+    "box": {
+     "x": 730,
+     "y": 16,
+     "w": 99,
+     "h": 43
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "FAQ",
+    "box": {
+     "x": 862,
+     "y": 16,
+     "w": 36,
+     "h": 43
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Visit & contact",
+    "box": {
+     "x": 931,
+     "y": 16,
+     "w": 111,
+     "h": 43
+    },
+    "fontSize": "16px",
+    "fontWeight": "620",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Home",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "54.4px",
+    "fontWeight": "800",
+    "color": "rgb(162, 74, 26)"
+   },
+   {
+    "text": "Puppies",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "54.4px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Happy families",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "54.4px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "How it works",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "54.4px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "FAQ",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "54.4px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   },
+   {
+    "text": "Visit & contact",
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 0,
+     "h": 0
+    },
+    "fontSize": "54.4px",
+    "fontWeight": "800",
+    "color": "rgb(42, 23, 14)"
+   }
+  ],
+  "footer": {
+   "box": {
+    "x": 0,
+    "y": 11985,
+    "w": 1425,
+    "h": 701
+   },
+   "backgroundColor": "rgb(36, 19, 11)",
+   "color": "rgb(255, 253, 248)"
+  },
+  "cards": [
+   {
+    "box": {
+     "x": 50,
+     "y": 647,
+     "w": 154,
+     "h": 205
+    },
+    "html": "<a class=\"tp-lineup__pup\" data-pup-friend=\"true\" aria-label=\"Meet Max, Maltipoo\" href=\"/puppies/maltipoo-max-male\"><span class=\"tp-lineup__photo\"><img alt=\"Max, male Maltipoo puppy\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; object-position: 53.8% 44.3%; color: transparent; background-color: rgb(120, 88, 56);\" sizes=\"11rem\" srcset=\"/_next/image?url=%2Fmedia%2FZ0ToauDx7Eve%2F5fffe4d022%2Fb942a5_4b8cfb8204d24eadaf524332aba1dc15-mv2.webp&amp;w=32&amp;q=75 32w, /_next/image?url=%2Fmedia%2FZ0ToauDx7Eve%2F5fffe4d022%2Fb942a5_4b8cfb8204d24eadaf524332aba1dc15-mv2.webp&amp;w=48&amp;q=75 48w, /_next/image?url=%2Fmedia%2FZ0ToauDx7Eve%2F5fffe4d022%2Fb942a5_4b8cfb8204d24eadaf524332aba1dc15-mv2.webp&amp;w=64&amp;q=75 64w, /_next/image?url=%2Fmedia%2FZ0ToauDx7Eve%2F5fffe4d022%2Fb942a5_4b8cfb"
+   },
+   {
+    "box": {
+     "x": 232,
+     "y": 587,
+     "w": 178,
+     "h": 238
+    },
+    "html": "<a class=\"tp-lineup__pup\" data-pup-friend=\"true\" aria-label=\"Meet Korean Teacup Maltipoo, Korean Teacup Maltipoo\" href=\"/puppies/korean-teacup-maltipoo-female\"><span class=\"tp-lineup__photo\"><img alt=\"Female Korean Teacup Maltipoo puppy\" fetchpriority=\"high\" loading=\"eager\" decoding=\"async\" data-nimg=\"fill\" style=\"position: absolute; height: 100%; width: 100%; inset: 0px; object-fit: cover; object-position: 52.5% 42.6%; color: transparent; background-color: rgb(232, 232, 232);\" sizes=\"11rem\" srcset=\"/_next/image?url=%2Fmedia%2FgAaGwoGej2g6%2F5523e884dd%2Fb942a5_50f0ae67c9ff437d911597d52a9e63b3-mv2.jpg&amp;w=32&amp;q=75 32w, /_next/image?url=%2Fmedia%2FgAaGwoGej2g6%2F5523e884dd%2Fb942a5_50f0ae67c9ff437d911597d52a9e63b3-mv2.jpg&amp;w=48&amp;q=75 48w, /_next/image?url=%2Fmedia%2FgAaGwoGej2g6%2F5523e884dd%2Fb942a5_50f0ae67c9ff437d911597d52a9e63b3-mv2.jpg&amp;w=64&amp;q=75 64w, /_next/image?u"
+   }
+  ],
+  "actor": [
+   {
+    "tag": "DIV",
+    "cls": "pup-stop tp-hero__teddy",
+    "html": "<div data-pup-stop=\"true\" data-pose=\"peek\" data-facing=\"right\" data-act=\"peekaboo\" data-behind=\"true\" data-lane=\"true\" class=\"pup-stop tp-hero__teddy\"><div class=\"pup-buddy \" data-facing=\"right\" data-live=\"\"><svg viewBox=\"0 0 300 240\" role=\"img\" aria-label=\"Teddy, the TeddyPups puppy, peeking over the quilt\" focusable=\"false\" style=\"overflow: visible;\"><g data-p=\"root\"><ellipse data-p=\"shadow\" cx=\"150\" cy=\"230\" rx=\"92\" ry=\"7\" fill=\"#2a170e\" opacity=\"0\" transform=\"translate(0 0) scale(1 1)\" style=\"transform-box: fill-box; transform-origin: center center;\"></ellipse><g data-p=\"body\" transform=\"translate(0 0) rotate(0 196 206) translate(196 0) scale(1 1) translate(-196 0)\" opacity=\"0\"><g data-p=\"bf\" transform=\"translate(94 192) rotate(0)\" opacity=\"1\"><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14Z\" fill=\"#e4a352\"></path><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14\" stroke=\"#2a170e\" stroke-wid",
+    "css": {
+     "position": "absolute",
+     "width": "414px",
+     "height": "331.188px",
+     "transition": "all",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "DIV",
+    "cls": "pup-buddy ",
+    "html": "<div class=\"pup-buddy \" data-facing=\"right\" data-live=\"\"><svg viewBox=\"0 0 300 240\" role=\"img\" aria-label=\"Teddy, the TeddyPups puppy, peeking over the quilt\" focusable=\"false\" style=\"overflow: visible;\"><g data-p=\"root\"><ellipse data-p=\"shadow\" cx=\"150\" cy=\"230\" rx=\"92\" ry=\"7\" fill=\"#2a170e\" opacity=\"0\" transform=\"translate(0 0) scale(1 1)\" style=\"transform-box: fill-box; transform-origin: center center;\"></ellipse><g data-p=\"body\" transform=\"translate(0 0) rotate(0 196 206) translate(196 0) scale(1 1) translate(-196 0)\" opacity=\"0\"><g data-p=\"bf\" transform=\"translate(94 192) rotate(0)\" opacity=\"1\"><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14Z\" fill=\"#e4a352\"></path><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14\" stroke=\"#2a170e\" stroke-width=\"3.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"none\"></path><path d=\"M-3.5 29 v5 M4.5 29 v5\" stroke=\"#2a170e\" stroke-width=\"2.4\" stroke-",
+    "css": {
+     "position": "relative",
+     "width": "414px",
+     "height": "331.188px",
+     "transition": "all",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "SPAN",
+    "cls": "pup-bubble",
+    "html": "<span aria-hidden=\"true\" class=\"pup-bubble\" data-show=\"false\"></span>",
+    "css": {
+     "position": "absolute",
+     "width": "31.1875px",
+     "height": "14.3906px",
+     "transition": "scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.18s ease-out",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "DIV",
+    "cls": "pup-stop tp-meet__teddy",
+    "html": "<div data-pup-stop=\"true\" data-pose=\"walk\" data-facing=\"right\" class=\"pup-stop tp-meet__teddy\" data-act=\"treadmill\"><div class=\"pup-buddy \" data-facing=\"right\" data-live=\"\"><svg viewBox=\"0 0 300 240\" aria-hidden=\"true\" focusable=\"false\" style=\"overflow: visible;\"><g data-p=\"root\"><ellipse data-p=\"shadow\" cx=\"150\" cy=\"230\" rx=\"92\" ry=\"7\" fill=\"#2a170e\" opacity=\"0.12\" transform=\"translate(0 0) scale(1 1)\" style=\"transform-box: fill-box; transform-origin: center center;\"></ellipse><g data-p=\"body\" transform=\"translate(0 0) rotate(0 196 206) translate(196 0) scale(1 1) translate(-196 0)\" opacity=\"1\"><g data-p=\"bf\" transform=\"translate(94 192) rotate(0)\" opacity=\"1\"><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14Z\" fill=\"#e4a352\"></path><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14\" stroke=\"#2a170e\" stroke-width=\"3.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"none\"></path><path d=\"M-3.",
+    "css": {
+     "position": "absolute",
+     "width": "201.594px",
+     "height": "161.266px",
+     "transition": "all",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "DIV",
+    "cls": "pup-buddy ",
+    "html": "<div class=\"pup-buddy \" data-facing=\"right\" data-live=\"\"><svg viewBox=\"0 0 300 240\" aria-hidden=\"true\" focusable=\"false\" style=\"overflow: visible;\"><g data-p=\"root\"><ellipse data-p=\"shadow\" cx=\"150\" cy=\"230\" rx=\"92\" ry=\"7\" fill=\"#2a170e\" opacity=\"0.12\" transform=\"translate(0 0) scale(1 1)\" style=\"transform-box: fill-box; transform-origin: center center;\"></ellipse><g data-p=\"body\" transform=\"translate(0 0) rotate(0 196 206) translate(196 0) scale(1 1) translate(-196 0)\" opacity=\"1\"><g data-p=\"bf\" transform=\"translate(94 192) rotate(0)\" opacity=\"1\"><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14Z\" fill=\"#e4a352\"></path><path d=\"M-14 -14 C-14 4 -12 18 -12 27 C-12 34 -7 36 0 36 C9 36 13 33 13 27 C13 18 14 4 14 -14\" stroke=\"#2a170e\" stroke-width=\"3.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"none\"></path><path d=\"M-3.5 29 v5 M4.5 29 v5\" stroke=\"#2a170e\" stroke-width=\"2.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\" fill=\"none\"><",
+    "css": {
+     "position": "relative",
+     "width": "201.594px",
+     "height": "161.266px",
+     "transition": "all",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   },
+   {
+    "tag": "SPAN",
+    "cls": "pup-bubble",
+    "html": "<span aria-hidden=\"true\" class=\"pup-bubble\" data-show=\"false\"></span>",
+    "css": {
+     "position": "absolute",
+     "width": "31.1875px",
+     "height": "14.3906px",
+     "transition": "scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.18s ease-out",
+     "pointerEvents": "none",
+     "zIndex": "auto",
+     "transform": "none"
+    }
+   }
+  ]
+ }
+}

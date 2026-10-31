@@ -1,0 +1,198 @@
+import { expect, test, type Page } from '@playwright/test';
+
+const cursor = (page: Page) => page.getByTestId('pup-cursor');
+const bubble = (page: Page) => page.locator('.pup-cursor__bubble');
+const sweep = async (page: Page, from: [number, number], to: [number, number], steps = 20) => {
+  await page.mouse.move(from[0], from[1]);
+  await page.mouse.move(to[0], to[1], { steps });
+};
+
+// networkidle-goto: wait for hydration so listeners exist before the first hover
+test.beforeEach(async ({ page }) => {
+  const go = page.goto.bind(page);
+  page.goto = (url, opts) => go(url, { waitUntil: 'networkidle', ...opts });
+});
+
+test.describe('desktop puppy cursor', () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+
+  test('follows the pointer with a trailing spring', async ({ page }) => {
+    await page.goto('/');
+    await page.mouse.move(200, 200);
+    await page.mouse.move(210, 205);
+    await expect(cursor(page)).toHaveAttribute('data-on', 'true');
+    // jump the pointer in one synchronous step and read the puppy before the next frame: it must lag behind…
+    const lag = await page.evaluate(() => {
+      const el = document.querySelector('[data-testid="pup-cursor"]') as HTMLElement;
+      const x0 = el.getBoundingClientRect().x;
+      window.dispatchEvent(new PointerEvent('pointermove', { clientX: 1000, clientY: 500, pointerType: 'mouse' }));
+      return { x0, x1: el.getBoundingClientRect().x };
+    });
+    expect(lag.x1).toBeLessThan(500);
+    // …then eases in and settles at the pointer offset (+24, +22)
+    await expect.poll(async () => Math.round((await cursor(page).boundingBox())!.x), { timeout: 3000 }).toBeGreaterThan(1015);
+  });
+
+  test('default "hm?" appears only after the pointer rests, and goes away on move', async ({ page }) => {
+    await page.goto('/how-it-works');
+    await sweep(page, [300, 400], [400, 420]);
+    await expect(bubble(page)).toHaveAttribute('data-show', 'false');
+    await expect(bubble(page)).toHaveText('hm?', { timeout: 3000 });
+    await expect(bubble(page)).toHaveAttribute('data-show', 'true');
+    await page.mouse.move(600, 420, { steps: 5 });
+    await expect(bubble(page)).toHaveAttribute('data-show', 'false');
+  });
+
+  test('click reaction "achoo!"', async ({ page }) => {
+    await page.goto('/how-it-works');
+    await sweep(page, [300, 500], [500, 520]);
+    await page.mouse.down();
+    await expect(bubble(page)).toHaveText('achoo!');
+    await expect(cursor(page)).toHaveAttribute('data-state', 'sneeze');
+    await page.mouse.up();
+    await expect(bubble(page)).toHaveAttribute('data-show', 'false', { timeout: 3000 });
+  });
+
+  test('puppy cards say "coming?" and the nested children do not flicker', async ({ page }) => {
+    await page.goto('/puppies');
+    const card = page.locator('.pup-card').first();
+    await card.scrollIntoViewIfNeeded();
+    const box = (await card.boundingBox())!;
+    await page.mouse.move(box.x + 10, box.y + 10);
+    await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2, { steps: 8 });
+    await expect(bubble(page)).toHaveText('coming?');
+    // walk across title → image → badge: bubble must stay on
+    for (const [fx, fy] of [[0.5, 0.1], [0.5, 0.5], [0.8, 0.3], [0.5, 0.8]]) {
+      await page.mouse.move(box.x + box.width * fx, box.y + box.height * fy, { steps: 3 });
+      await expect(bubble(page)).toHaveAttribute('data-show', 'true');
+      await expect(bubble(page)).toHaveText('coming?');
+    }
+  });
+
+  test('contextual words: WhatsApp = woof!, primary CTA = treat?, photo = so cute!', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('link', { name: 'View available puppies' }).hover();
+    await expect(bubble(page)).toHaveText('treat?');
+    await page.getByRole('link', { name: 'Enquire on WhatsApp' }).first().hover();
+    await expect(bubble(page)).toHaveText('woof!');
+    await page.goto('/happy-families');
+    await page.locator('button[aria-label^="Open photo 1 of"]').hover();
+    await expect(bubble(page)).toHaveText('so cute!');
+  });
+
+  test('puppy hides over form fields and typing + selection still work', async ({ page }) => {
+    await page.goto('/contact');
+    const name = page.getByLabel(/your name/i);
+    await name.scrollIntoViewIfNeeded();
+    await name.hover();
+    await expect(cursor(page)).toHaveAttribute('data-state', 'hidden');
+    await name.click();
+    await page.keyboard.type('Sathvik');
+    await expect(name).toHaveValue('Sathvik');
+    // text selection by dragging across a heading is unaffected
+    const h1 = page.locator('h1');
+    const b = (await h1.boundingBox())!;
+    await page.mouse.move(b.x + 4, b.y + b.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(b.x + b.width - 4, b.y + b.height / 2, { steps: 6 });
+    await page.mouse.up();
+    expect(await page.evaluate(() => window.getSelection()?.toString().length ?? 0)).toBeGreaterThan(3);
+  });
+
+  test('cursor never intercepts clicks', async ({ page }) => {
+    await page.goto('/puppies');
+    await sweep(page, [10, 10], [700, 500]);
+    const pe = await cursor(page).evaluate(el => getComputedStyle(el).pointerEvents);
+    expect(pe).toBe('none');
+    await page.getByRole('link', { name: 'FAQ' }).first().click();
+    await expect(page).toHaveURL(/\/faq$/);
+  });
+});
+
+test.describe('paw trail', () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+  const live = (page: Page) =>
+    page.evaluate(() => [...document.querySelectorAll('.paw-print')].filter(el => el.getAnimations().some(a => a.playState === 'running') && Number(getComputedStyle(el).opacity) > 0.02).length);
+
+  test('prints appear while moving, alternate sides, are capped and fade away', async ({ page }) => {
+    await page.goto('/how-it-works');
+    await page.mouse.move(100, 300);
+    await page.mouse.move(1300, 360, { steps: 60 });
+    const n = await live(page);
+    expect(n).toBeGreaterThan(3);
+    const total = await page.locator('.paw-print').count();
+    expect(total).toBeLessThanOrEqual(14);
+    // throttled: far fewer prints than pointer events (60)
+    expect(n).toBeLessThan(25);
+    // keep sweeping a lot: DOM node count must not grow
+    for (let k = 0; k < 6; k++) {
+      await page.mouse.move(100, 200 + k * 50);
+      await page.mouse.move(1300, 220 + k * 50, { steps: 40 });
+    }
+    expect(await page.locator('.paw-print').count()).toBeLessThanOrEqual(14);
+    // all fade out
+    await expect.poll(() => live(page), { timeout: 5000 }).toBe(0);
+  });
+
+  test('no prints while selecting text or typing', async ({ page }) => {
+    await page.goto('/contact');
+    await page.mouse.move(100, 500);
+    await page.mouse.down();
+    await page.mouse.move(900, 520, { steps: 40 });
+    await page.mouse.up();
+    expect(await live(page)).toBe(0);
+  });
+});
+
+test.describe('fallbacks', () => {
+  test('touch / small screen: no cursor, no trail; walking Teddy companion instead', async ({ browser }) => {
+    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
+    const page = await ctx.newPage();
+    await page.goto('/');
+    await expect(page.getByTestId('pup-cursor')).toHaveCount(0);
+    await expect(page.locator('.paw-print')).toHaveCount(0);
+    await expect(page.getByTestId('pup-body')).toBeVisible();
+    await ctx.close();
+  });
+
+  test('reduced motion: no cursor, trail or walker; content still visible', async ({ browser }) => {
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
+    const page = await ctx.newPage();
+    await page.goto('/');
+    await page.mouse.move(100, 100);
+    await page.mouse.move(900, 500, { steps: 30 });
+    await expect(page.getByTestId('pup-cursor')).toHaveCount(0);
+    await expect(page.locator('.paw-print')).toHaveCount(0);
+    await expect(page.getByTestId('pup-body')).toHaveCount(0);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    // below-fold content must be visible without animation
+    const op = await page.locator('#two-title').evaluate(el => getComputedStyle(el.closest('[data-reveal]') ?? el).opacity);
+    expect(op).toBe('1');
+    await ctx.close();
+  });
+});
+
+test('performance: extended pointer movement keeps frame times healthy', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  await page.evaluate(() => {
+    (window as unknown as { __frames: number[] }).__frames = [];
+    let last = performance.now();
+    const tick = (t: number) => {
+      (window as unknown as { __frames: number[] }).__frames.push(t - last);
+      last = t;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+  for (let k = 0; k < 12; k++) {
+    await page.mouse.move(80, 120 + k * 40);
+    await page.mouse.move(1350, 140 + k * 40, { steps: 60 });
+  }
+  const frames = await page.evaluate(() => (window as unknown as { __frames: number[] }).__frames);
+  const sorted = [...frames].sort((a, b) => a - b);
+  const p95 = sorted[Math.floor(sorted.length * 0.95)];
+  console.log(`frames=${frames.length} p95=${p95.toFixed(1)}ms`);
+  expect(p95).toBeLessThan(50);
+  expect(await page.locator('.paw-print').count()).toBeLessThanOrEqual(14);
+});
