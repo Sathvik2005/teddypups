@@ -22,24 +22,24 @@ export function HeroCollage({ big, round, polaroid }: { big: Pic; round: Pic; po
       <Parallax speed={0.07} className="absolute inset-x-[12%] top-0 bottom-[9%]">
         <Link href={big.href} aria-label={`Meet ${big.name}`} data-cursor-say="pick me!" className="block h-full">
           <div className="photo-frame relative h-[min(100%,34rem)] overflow-hidden rounded-t-[999px] rounded-b-[2rem] bg-honey-soft" style={{ aspectRatio: '4/5' }}>
-            <Image src={big.src} alt={big.alt} fill priority fetchPriority="high" sizes="(min-width:1024px) 30vw, 70vw" className="object-cover" style={{ objectPosition: '50% 38%' }} />
+            <Image src={big.src} alt={big.alt} fill priority fetchPriority="high" quality={62} sizes="(min-width:1024px) 30vw, 70vw" className="object-cover" style={{ objectPosition: '50% 38%' }} />
           </div>
         </Link>
       </Parallax>
 
       <Parallax speed={-0.1} className="absolute bottom-[4%] -left-1 w-[40%] sm:left-0">
         <Link href={round.href} aria-label={`Meet ${round.name}`} data-cursor-say="pick me!" className="block -rotate-6 transition-transform duration-500 hover:rotate-0 hover:scale-105">
-          <ImageReveal delay={0.25} className="photo-frame relative aspect-square overflow-hidden rounded-full bg-sky">
-            <Image src={round.src} alt={round.alt} fill priority sizes="14rem" className="object-cover" />
+          <ImageReveal when="load" delay={0.25} className="photo-frame relative aspect-square overflow-hidden rounded-full bg-sky">
+            <Image src={round.src} alt={round.alt} fill sizes="14rem" className="object-cover" />
           </ImageReveal>
         </Link>
       </Parallax>
 
       <Parallax speed={0.12} className="absolute top-[7%] -right-1 w-[34%] sm:right-0">
         <Link href={polaroid.href} aria-label={`Meet ${polaroid.name}`} data-cursor-say="pick me!" className="block rotate-[6deg] transition-transform duration-500 hover:rotate-0 hover:scale-105">
-          <ImageReveal delay={0.4} className="photo-frame rounded-md bg-milk p-1.5 pb-6">
+          <ImageReveal when="load" delay={0.4} className="photo-frame rounded-md bg-milk p-1.5 pb-6">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[3px]">
-              <Image src={polaroid.src} alt={polaroid.alt} fill priority sizes="12rem" className="object-cover" />
+              <Image src={polaroid.src} alt={polaroid.alt} fill sizes="12rem" className="object-cover" />
             </div>
           </ImageReveal>
         </Link>

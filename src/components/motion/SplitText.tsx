@@ -1,40 +1,49 @@
 'use client';
 
-import { motion, useReducedMotion } from 'framer-motion';
-import { createElement } from 'react';
+import { useEffect, useRef } from 'react';
 import { cn } from '@/lib/cn';
 
 type Tag = 'h1' | 'h2' | 'h3' | 'p' | 'span';
 
 /**
- * Word-by-word headline reveal: each word rises out of a mask, staggered.
+ * Word-by-word headline reveal: each word rises out of a mask, staggered, once the heading scrolls into view.
+ * Pure CSS animation (see `.sw` in globals.css) triggered by a tiny IntersectionObserver — no animation library.
  * The element keeps the full text as its accessible name; the animated words are aria-hidden.
  */
-export function SplitText({ text, as = 'h2', className, delay = 0, id, once = true }: { text: string; as?: Tag; className?: string; delay?: number; id?: string; once?: boolean }) {
-  const reduce = useReducedMotion();
+export function SplitText({ text, as = 'h2', className, delay = 0, id }: { text: string; as?: Tag; className?: string; delay?: number; id?: string }) {
+  const ref = useRef<HTMLHeadingElement>(null);
   const words = text.split(' ');
-  return createElement(
-    as,
-    { id, className, 'aria-label': text },
-    <motion.span
-      aria-hidden="true"
-      className="inline"
-      initial={reduce ? false : 'hidden'}
-      whileInView="show"
-      viewport={{ once, amount: 0.6 }}
-      transition={{ staggerChildren: 0.075, delayChildren: delay }}
-    >
+  const Tag = as as 'h2';
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.dataset.in = 'true';
+      return;
+    }
+    const io = new IntersectionObserver(
+      entries => {
+        if (entries.some(e => e.isIntersecting || e.boundingClientRect.bottom < 0)) {
+          el.dataset.in = 'true';
+          io.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <Tag id={id} ref={ref} className={className} aria-label={text} data-split="">
       {words.map((w, i) => (
-        <span key={i} className={cn('inline-block overflow-hidden pb-[0.12em] align-bottom', i < words.length - 1 && 'mr-[0.25em]')}>
-          <motion.span
-            className="inline-block"
-            variants={{ hidden: { y: '115%', rotate: 4 }, show: { y: '0%', rotate: 0 } }}
-            transition={{ duration: 0.8, ease: [0.2, 0.9, 0.25, 1] }}
-          >
+        <span key={i} aria-hidden="true" className={cn('inline-block overflow-hidden pb-[0.12em] align-bottom', i < words.length - 1 && 'mr-[0.25em]')}>
+          <span className="sw" style={{ ['--i' as string]: i, ['--d' as string]: `${delay}s` } as React.CSSProperties}>
             {w}
-          </motion.span>
+          </span>
         </span>
       ))}
-    </motion.span>,
+    </Tag>
   );
 }

@@ -74,7 +74,7 @@ export function PuppyRail({ puppies }: { puppies: Puppy[] }) {
   }, []);
 
   return (
-    <div className="relative mt-12 md:mt-16">
+    <div className="cv-rail relative mt-12 md:mt-16">
       <ul
         ref={ref}
         role="list"

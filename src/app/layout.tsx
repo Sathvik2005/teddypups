@@ -2,18 +2,18 @@ import type { Metadata, Viewport } from 'next';
 import { Figtree, Fraunces, Shantell_Sans } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
 import { PupActor } from '@/components/mascot/PupActor';
 import { PupCursor } from '@/components/cursor/PupCursor';
 import { PawTrail } from '@/components/cursor/PawTrail';
-import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
 import { ScrollProgress } from '@/components/motion/ScrollProgress';
 import { site } from '@/data/site';
 import { organizationJsonLd, websiteJsonLd } from '@/lib/seo';
 import './globals.css';
 
-const fraunces = Fraunces({ subsets: ['latin'], axes: ['SOFT', 'WONK', 'opsz'], variable: '--font-fraunces', display: 'swap' });
+const fraunces = Fraunces({ subsets: ['latin'], axes: ['SOFT', 'opsz'], variable: '--font-fraunces', display: 'swap' });
 const figtree = Figtree({ subsets: ['latin'], variable: '--font-figtree', display: 'swap' });
-const shantell = Shantell_Sans({ subsets: ['latin'], variable: '--font-shantell', display: 'swap' });
+const shantell = Shantell_Sans({ subsets: ['latin'], variable: '--font-shantell', display: 'swap', preload: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

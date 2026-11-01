@@ -24,7 +24,7 @@ const panel =
 export function TwoWays() {
   const imported = puppyPhoto(getPuppy('korean-teacup-poodle-female')!);
   return (
-    <section aria-labelledby="two-title" className="gutter mx-auto max-w-[110rem] py-20 md:py-28">
+    <section aria-labelledby="two-title" className="cv-auto gutter mx-auto max-w-[110rem] py-20 md:py-28">
       <p className="chapter text-lg text-toffee-ink md:text-xl">Chapter 02 — pick your path</p>
       <SplitText as="h2" id="two-title" text="Two ways to meet your puppy" className="h-section mt-2 max-w-4xl" />
       <div className="mt-12 flex flex-col gap-5 lg:h-[36rem] lg:flex-row">

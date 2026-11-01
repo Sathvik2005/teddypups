@@ -18,7 +18,7 @@ export function Trust() {
       <SplitText as="h2" id="trust-title" text="Why families trust TeddyPups" className="h-section relative mt-2 max-w-4xl" />
       <PupStop name="trust" className="mt-2" />
 
-      <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-12">
+      <div className="cv-auto -mb-3 mt-12 grid grid-cols-1 gap-5 pb-3 lg:grid-cols-12">
         <Reveal className="lg:col-span-7 lg:row-span-2">
           <article className={`${card} flex h-full min-h-[28rem] flex-col justify-end text-milk`}>
             {vet.kind === 'image' && <Image src={vet.src} alt={vet.alt} fill sizes="(min-width:1024px) 55vw, 100vw" className="object-cover" style={{ objectPosition: '50% 30%' }} />}

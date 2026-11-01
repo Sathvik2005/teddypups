@@ -28,7 +28,7 @@ export function Families() {
             />
           </Reveal>
         </div>
-        <div className="mt-16">
+        <div className="cv-auto -mb-6 mt-10 py-6">
           <PhotoWall limit={9} variant="collage" />
         </div>
         <div className="mt-14 text-center">

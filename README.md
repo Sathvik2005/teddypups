@@ -9,7 +9,7 @@ Built as a technical assignment and internal Logikality showcase.
 
 ## Stack
 
-Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Framer Motion · React Hook Form + Zod · Lucide · Playwright
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · React Hook Form + Zod · Lucide · Playwright (+ axe-core for accessibility checks)
 
 Fonts are the reference's own, verified from its CSS: **Fraunces** (display), **Figtree** (UI), **Shantell Sans** (handwriting), loaded with `next/font/google`. Colour tokens (`milk`, `cocoa`, `honey`, `toffee`, `blush`, `sky`) come straight from the reference stylesheet.
 
@@ -57,6 +57,7 @@ reference/                capture / extraction scripts used during research
 
 - **Data is generated, not hand-written.** `reference/gen-data.mjs` builds typed data from the reference's own payload (dimensions, alt text, video + poster), so no repeated JSX and no invented facts.
 - **The reference's "pup-actor" is not a cursor.** Reading its JS showed a scroll-driven walking mascot. I kept that behaviour for touch / small screens (`PupActor`) and built the requested pointer-following puppy (`PupCursor`) for fine-pointer desktops. They never run together.
+- **Motion without an animation library.** Reveals, word-by-word headlines and image wipes are CSS animations triggered by a tiny IntersectionObserver; parallax and the scroll-progress bar are CSS scroll-driven animations (`animation-timeline`), so they cost no JavaScript (browsers without support just show things still). Framer Motion was removed after measuring: it cut transferred JavaScript and main-thread work on mobile.
 - **No React renders per pointer move.** Cursor, paw trail and mascot eye-tracking use rAF and direct DOM writes; the trail is a pool of 14 recycled nodes.
 - **Native cursor is kept.** The puppy trails the real pointer instead of replacing it, so clicks, text selection, inputs and dialogs are unaffected. It hides over form fields.
 - **Reduced motion:** cursor, trail, walker and reveals are disabled/instant.

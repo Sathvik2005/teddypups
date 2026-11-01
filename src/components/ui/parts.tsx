@@ -71,20 +71,20 @@ function PhotoCollage({ photos }: { photos: { src: string; alt: string }[] }) {
   return (
     <div aria-hidden="true" className="relative mx-auto h-64 w-full max-w-md sm:h-72 lg:col-span-5 lg:h-[24rem] lg:max-w-none">
       <Parallax speed={0.06} className="absolute top-0 left-[6%] w-[44%]">
-        <ImageReveal className="photo-frame relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[1.5rem] bg-honey-soft">
+        <ImageReveal when="load" className="photo-frame relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[1.5rem] bg-honey-soft">
           <Image src={a.src} alt="" fill priority sizes="16rem" className="object-cover" />
         </ImageReveal>
       </Parallax>
       {b && (
         <Parallax speed={-0.1} className="absolute right-[4%] bottom-0 w-[38%]">
-          <ImageReveal delay={0.2} className="photo-frame relative aspect-square rotate-6 overflow-hidden rounded-full bg-sky">
+          <ImageReveal when="load" delay={0.2} className="photo-frame relative aspect-square rotate-6 overflow-hidden rounded-full bg-sky">
             <Image src={b.src} alt="" fill priority sizes="14rem" className="object-cover" />
           </ImageReveal>
         </Parallax>
       )}
       {c && (
         <Parallax speed={0.1} className="absolute top-[4%] right-[10%] w-[30%]">
-          <ImageReveal delay={0.35} className="photo-frame -rotate-6 rounded-md bg-milk p-1.5 pb-5">
+          <ImageReveal when="load" delay={0.35} className="photo-frame -rotate-6 rounded-md bg-milk p-1.5 pb-5">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[3px]">
               <Image src={c.src} alt="" fill priority sizes="11rem" className="object-cover" />
             </div>

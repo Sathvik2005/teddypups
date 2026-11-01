@@ -1,17 +1,15 @@
-'use client';
+import type { CSSProperties, ReactNode } from 'react';
 
-import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { useRef, type ReactNode } from 'react';
-
-/** Moves its child vertically against the scroll. `speed` ≈ px of travel per 100px scrolled (negative = opposite way). */
+/**
+ * Moves its child vertically against the scroll, with no JavaScript: a CSS scroll-driven animation (`animation-timeline: view()`).
+ * `speed` ≈ px of travel per 100px scrolled (negative = opposite way). Browsers without support simply show it still.
+ */
 export function Parallax({ children, speed = 0.15, className }: { children: ReactNode; speed?: number; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], [`${-speed * 100}px`, `${speed * 100}px`]);
   return (
-    <div ref={ref} className={className}>
-      <motion.div style={reduce ? undefined : { y }}>{children}</motion.div>
+    <div className={className}>
+      <div className="parallax" style={{ ['--px' as string]: `${speed * 100}px` } as CSSProperties}>
+        {children}
+      </div>
     </div>
   );
 }
