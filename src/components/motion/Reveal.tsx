@@ -3,8 +3,10 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 
 /**
- * Fade-up reveal. Content below the fold starts hidden and is shown once by an
- * IntersectionObserver; content already in view (and no-JS / reduced motion) is never hidden.
+ * Fade-up reveal. Content below the fold starts hidden and is shown once by an IntersectionObserver;
+ * content already in view (and no-JS / reduced motion) is never hidden.
+ * Robust against fast scrolling: anything the visitor has scrolled past (or that sits above the viewport) is shown too,
+ * and a timer shows whatever is already on screen if the observer never reports it.
  */
 export function Reveal({ children, delay = 0, className }: { children: ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,17 +17,31 @@ export function Reveal({ children, delay = 0, className }: { children: ReactNode
     if (!el || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (el.getBoundingClientRect().top < innerHeight * 0.92) return;
     setState('hidden');
+    let done = false;
+    const show = () => {
+      if (done) return;
+      done = true;
+      setState('shown');
+      io.disconnect();
+      clearInterval(guard);
+    };
     const io = new IntersectionObserver(
       entries => {
-        if (entries.some(e => e.isIntersecting)) {
-          setState('shown');
-          io.disconnect();
-        }
+        if (entries.some(e => e.isIntersecting || e.boundingClientRect.bottom < 0)) show();
       },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.05 },
+      { rootMargin: '0px 0px -6% 0px', threshold: 0 },
     );
     io.observe(el);
-    return () => io.disconnect();
+    // safety net: if it is on screen (or behind us) but the observer has not fired, show it
+    const guard = setInterval(() => {
+      const r = el.getBoundingClientRect();
+      if (r.bottom < 0 || r.top < innerHeight * 0.94) show();
+    }, 400);
+    return () => {
+      done = true;
+      io.disconnect();
+      clearInterval(guard);
+    };
   }, []);
 
   return (

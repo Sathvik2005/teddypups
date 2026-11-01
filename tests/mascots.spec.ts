@@ -35,8 +35,9 @@ test('mascot pupils glance toward the cursor', async ({ page }) => {
   await page.mouse.move(b.x + b.width / 2 + 300, b.y + b.height / 2);
   await page.mouse.move(b.x + b.width / 2 + 320, b.y + b.height / 2 + 4);
   await expect.poll(() => pupil.evaluate(e => (e as SVGElement).style.transform)).toMatch(/translate\(\d/);
-  await page.mouse.move(b.x + b.width / 2 - 300, b.y + b.height / 2);
-  await page.mouse.move(b.x + b.width / 2 - 320, b.y + b.height / 2 + 4);
+  // the mascot sits near the left edge now, so aim at the far-left of the viewport (negative x would be ignored)
+  await page.mouse.move(Math.max(6, b.x + b.width / 2 - 300), b.y + b.height / 2);
+  await page.mouse.move(4, b.y + b.height / 2 + 4);
   await expect.poll(() => pupil.evaluate(e => (e as SVGElement).style.transform)).toMatch(/translate\(-/);
 });
 

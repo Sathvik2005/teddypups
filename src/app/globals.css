@@ -180,13 +180,14 @@ textarea:focus-visible {
   transition: transform 0.7s var(--ease-spring);
   backface-visibility: hidden;
 }
-.door-swing {
-  transform: perspective(900px) rotateY(-68deg);
+/* doors start shut; hover (fine pointers), keyboard focus, or data-open (touch, set by PuppyRail) swings them open */
+.door-swing { transform: perspective(900px) rotateY(0deg); }
+@media (hover: hover) {
+  .door-card:hover .door-swing { transform: perspective(900px) rotateY(-100deg); }
 }
-.door-card:hover .door-swing,
-.door-card:focus-visible .door-swing {
-  transform: perspective(900px) rotateY(-86deg);
-}
+.door-card:focus-visible .door-swing,
+.door-card[data-open='true'] .door-swing { transform: perspective(900px) rotateY(-100deg); }
+.door-card[data-open='true'] .open-pill { transform: translateY(0); }
 .zoom-img {
   transition: transform 0.45s ease;
 }
@@ -346,12 +347,14 @@ dialog.tp-menu::backdrop {
   font-weight: 600;
   font-size: 0.95rem;
   box-shadow: 0 3px 0 var(--color-cocoa);
-  opacity: 0;
-  transform: scale(0.4);
+    transform: scale(0.4);
   transform-origin: 50% 100%;
-  transition: opacity 0.18s ease, transform 0.22s var(--ease-spring);
+  visibility: hidden;
+  transition: transform 0.22s var(--ease-spring), visibility 0s linear 0.22s;
 }
 .pup-bubble[data-show='true'] {
+  visibility: visible;
+  transition-delay: 0s;
   opacity: 1;
   transform: scale(1);
 }
@@ -574,12 +577,14 @@ html[data-pup='on'] .pup-static {
   font-weight: 600;
   font-size: 0.85rem;
   box-shadow: 0 2px 0 var(--color-cocoa);
-  opacity: 0;
-  transform: scale(0.5) translateY(6px);
+    transform: scale(0.5) translateY(6px);
   transform-origin: 0% 100%;
-  transition: opacity 0.16s ease, transform 0.2s var(--ease-spring);
+  visibility: hidden;
+  transition: transform 0.2s var(--ease-spring), visibility 0s linear 0.2s;
 }
-.pup-cursor__bubble[data-show='true'] { opacity: 1; transform: none; }
+.pup-cursor__bubble[data-show='true'] {
+  visibility: visible;
+  transition-delay: 0s; opacity: 1; transform: none; }
 .paw-print { position: fixed; left: 0; top: 0; z-index: 59; width: 16px; height: 16px; pointer-events: none; opacity: 0; color: var(--color-toffee); }
 
 /* ---------- paw-pat on click ---------- */
@@ -604,3 +609,34 @@ html[data-pup-cursor='on'] :is(input, textarea, [contenteditable='true']) { curs
     repeating-linear-gradient(90deg, rgb(194 98 43 / 0.07) 0 2px, transparent 2px 72px),
     linear-gradient(180deg, #fff1d9 0%, #ffe8c2 100%);
 }
+
+/* ---------- redesign: marquee, seal, editorial helpers ---------- */
+@keyframes tp-marquee { to { transform: translateX(-100%); } }
+.marquee-track { animation: tp-marquee var(--marquee-speed, 38s) linear infinite; min-width: 100%; justify-content: space-around; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes tp-spin { to { transform: rotate(360deg); } }
+.spin-slow { animation: tp-spin 22s linear infinite; }
+.text-giant { font-size: clamp(3.2rem, 1rem + 11vw, 11rem); line-height: 0.88; letter-spacing: -0.03em; }
+.chapter { font-family: var(--font-hand); font-weight: 600; letter-spacing: 0.02em; }
+.photo-frame { border: 3px solid var(--color-cocoa); box-shadow: 0 8px 0 var(--color-cocoa); }
+@media (prefers-reduced-motion: reduce) { .marquee-track, .spin-slow { animation: none !important; } }
+
+/* ---------- touch targets: at least 44px on touch and phones ---------- */
+@media (pointer: coarse), (max-width: 767px) {
+  .btn-sm { min-height: 44px; }
+  .tap { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+/* safety net: a bare `grid` is one shrinkable column, so a wide child can never stretch it past the viewport (grid-cols-* utilities still win) */
+@layer base {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- CSS-only entrances (visible in the server-rendered HTML; no JS needed for first paint) ---------- */
+@keyframes tp-page-in { from { opacity: 0.6; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.page-enter { animation: tp-page-in 0.45s cubic-bezier(0.2, 0.9, 0.25, 1) both; }
+@keyframes tp-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.rise { animation: tp-rise 0.65s cubic-bezier(0.2, 0.9, 0.25, 1) both; animation-delay: var(--d, 0s); }
+@keyframes tp-word { from { transform: translateY(112%) rotate(4deg); } to { transform: none; } }
+.word { display: inline-block; animation: tp-word 0.7s cubic-bezier(0.2, 0.9, 0.25, 1) both; animation-delay: calc(var(--i, 0) * 55ms + var(--d, 0s)); }
+@media (prefers-reduced-motion: reduce) { .page-enter, .rise, .word { animation: none !important; } }

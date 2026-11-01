@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import type { ComponentProps, ReactNode } from 'react';
 import { MessageCircle } from 'lucide-react';
+import Image from 'next/image';
 import { cn } from '@/lib/cn';
+import { ImageReveal } from '@/components/motion/ImageReveal';
+import { Parallax } from '@/components/motion/Parallax';
 import { whatsappUrl } from '@/lib/whatsapp';
 
 export function PawIcon({ className }: { className?: string }) {
@@ -46,18 +49,49 @@ export function ButtonLink({ variant = 'primary', className, ...props }: { varia
   return <Link className={cn('btn', variant === 'primary' && 'btn-primary', variant === 'ghost' && 'btn-ghost', variant === 'honey' && 'btn-honey', className)} {...props} />;
 }
 
-export function PageIntro({ eyebrow, title, children, mascot }: { eyebrow?: string; title: string; children?: ReactNode; mascot?: ReactNode }) {
+export function PageIntro({ eyebrow, title, children, mascot, photos }: { eyebrow?: string; title: string; children?: ReactNode; mascot?: ReactNode; photos?: { src: string; alt: string }[] }) {
   return (
-    <header className="gutter mx-auto max-w-[110rem] pt-32 pb-10 md:pt-40">
+    <header className="gutter relative mx-auto max-w-[110rem] pt-32 pb-12 md:pt-40">
       {mascot && <div className="relative mb-4 h-28 w-52">{mascot}</div>}
-      <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
+      <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-7">
-          {eyebrow && <p className="eyebrow squiggle mb-3 inline-block text-xl md:text-2xl">{eyebrow}</p>}
+          {eyebrow && <p className="chapter mb-3 text-lg text-toffee-ink md:text-xl">{eyebrow}</p>}
           <h1 className="h-section">{title}</h1>
+          {children && <p className="mt-6 max-w-xl text-lg text-cocoa-soft md:text-xl">{children}</p>}
         </div>
-        {children && <p className="text-lg text-cocoa-soft md:text-xl lg:col-span-5 lg:pb-3">{children}</p>}
+        {photos && photos.length > 0 && <PhotoCollage photos={photos} />}
       </div>
     </header>
+  );
+}
+
+/** Three overlapping, tilted frames (arch · circle · polaroid) that wipe in and drift with the scroll. */
+function PhotoCollage({ photos }: { photos: { src: string; alt: string }[] }) {
+  const [a, b, c] = photos;
+  return (
+    <div aria-hidden="true" className="relative mx-auto h-64 w-full max-w-md sm:h-72 lg:col-span-5 lg:h-[24rem] lg:max-w-none">
+      <Parallax speed={0.06} className="absolute top-0 left-[6%] w-[44%]">
+        <ImageReveal className="photo-frame relative aspect-[3/4] overflow-hidden rounded-t-[999px] rounded-b-[1.5rem] bg-honey-soft">
+          <Image src={a.src} alt="" fill priority sizes="16rem" className="object-cover" />
+        </ImageReveal>
+      </Parallax>
+      {b && (
+        <Parallax speed={-0.1} className="absolute right-[4%] bottom-0 w-[38%]">
+          <ImageReveal delay={0.2} className="photo-frame relative aspect-square rotate-6 overflow-hidden rounded-full bg-sky">
+            <Image src={b.src} alt="" fill priority sizes="14rem" className="object-cover" />
+          </ImageReveal>
+        </Parallax>
+      )}
+      {c && (
+        <Parallax speed={0.1} className="absolute top-[4%] right-[10%] w-[30%]">
+          <ImageReveal delay={0.35} className="photo-frame -rotate-6 rounded-md bg-milk p-1.5 pb-5">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[3px]">
+              <Image src={c.src} alt="" fill priority sizes="11rem" className="object-cover" />
+            </div>
+          </ImageReveal>
+        </Parallax>
+      )}
+    </div>
   );
 }
 

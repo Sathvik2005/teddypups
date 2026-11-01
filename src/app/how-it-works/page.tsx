@@ -1,15 +1,13 @@
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { Home, Package, PawPrint, Plane, ShieldCheck, Headset, Heart, Truck } from 'lucide-react';
 import { PageIntro, ButtonLink, WhatsAppButton } from '@/components/ui/parts';
 import { Reveal } from '@/components/motion/Reveal';
 import { IntroMascot } from '@/components/mascot/IntroMascot';
+import { photoOf, SHOWROOM_PHOTO } from '@/data/puppies';
 import { MascotShowcase } from '@/components/mascot/MascotShowcase';
 
-export const metadata: Metadata = {
-  title: 'How it works',
-  description: 'Meet your puppy in our Downtown Dubai showroom, or order a rare teacup breed imported for you. Delivery and collection explained.',
-  alternates: { canonical: '/how-it-works' },
-};
+export const metadata: Metadata = pageMeta({ title: 'How it works', description: 'Meet your puppy in our Downtown Dubai showroom, or order a rare teacup breed imported for you. Delivery and collection explained.', path: '/how-it-works' });
 
 const toc = [
   ['#two-ways', 'Two ways to meet'],
@@ -27,7 +25,7 @@ const Steps = ({ steps }: { steps: Step[] }) => (
           {i + 1}
         </span>
         <div>
-          <h4 className="h-card text-xl">{s.title}</h4>
+          <h3 className="h-card text-xl">{s.title}</h3>
           <p className="mt-1 text-cocoa-soft">{s.body}</p>
         </div>
       </li>
@@ -48,14 +46,14 @@ const Card = ({ icon: Icon, title, body }: { icon: typeof Home; title: string; b
 export default function HowItWorksPage() {
   return (
     <>
-      <PageIntro title="How it works" mascot={<IntroMascot name="biscuit" expression="curious" say="follow me!" label="Biscuit, a curious caramel puppy, ready to guide you" />}>
+      <PageIntro title="How it works" photos={[SHOWROOM_PHOTO, photoOf('maltipoo-cavapoo-male'), photoOf('toy-poodle-male-female')]} mascot={<IntroMascot name="biscuit" expression="curious" say="follow me!" label="Biscuit, a curious caramel puppy, ready to guide you" />}>
         Whether you choose to visit us locally or order a premium breed from overseas, TeddyPups is here to make the experience unforgettable.
       </PageIntro>
 
       <nav aria-label="On this page" className="gutter mx-auto flex max-w-4xl flex-wrap justify-center gap-2.5 pb-12">
         <span className="eyebrow self-center text-lg">On this page</span>
         {toc.map(([h, l]) => (
-          <a key={h} href={h} className="rounded-full border-2 border-cocoa bg-milk px-4 py-1.5 text-sm font-semibold shadow-[0_3px_0_var(--color-cocoa)] transition-transform hover:-translate-y-0.5">
+          <a key={h} href={h} className="tap rounded-full border-2 border-cocoa bg-milk px-4 py-1.5 text-sm font-semibold shadow-[0_3px_0_var(--color-cocoa)] transition-transform hover:-translate-y-0.5">
             {l}
           </a>
         ))}
@@ -82,7 +80,7 @@ export default function HowItWorksPage() {
         </Reveal>
         <Reveal delay={100}>
           <div className="h-full rounded-[2rem] border-[3px] border-cocoa bg-sky p-7 md:p-10">
-            <p className="eyebrow text-lg !text-sky-deep">Imported</p>
+            <p className="eyebrow text-lg !text-cocoa">Imported</p>
             <h2 className="h-card mt-1 text-4xl">Order upon request</h2>
             <p className="mt-4 text-cocoa-soft">
               Looking for a truly exceptional companion? Our Order Upon Request service gives you access to some of the world&apos;s most sought-after teacup breeds — ethically sourced from the most reputable, certified breeders across Europe, Korea, and beyond.

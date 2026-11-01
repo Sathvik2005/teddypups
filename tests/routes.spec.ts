@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
 const slowScroll = async (page: Page) => {
   const h = await page.evaluate(() => document.documentElement.scrollHeight);
   for (let y = 0; y < h; y += 320) {
-    await page.evaluate(v => scrollTo(0, v), y);
+    await page.evaluate(v => scrollTo({ top: v, behavior: 'instant' }), y);
     await page.waitForTimeout(90);
   }
 };

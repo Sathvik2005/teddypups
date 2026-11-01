@@ -37,7 +37,7 @@ export function Footer() {
           <ul className="mt-4 space-y-2.5">
             {footerExplore.map(l => (
               <li key={l.href + l.label}>
-                <Link href={l.href} className="transition-colors duration-200 hover:text-honey">
+                <Link href={l.href} className="tap transition-colors duration-200 hover:text-honey">
                   {l.label}
                 </Link>
               </li>
@@ -50,13 +50,13 @@ export function Footer() {
           <ul className="mt-4 space-y-3">
             <li className="flex items-start gap-2.5">
               <Phone size={18} className="mt-1 shrink-0 text-honey" aria-hidden="true" />
-              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="transition-colors duration-200 hover:text-honey">
+              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="tap transition-colors duration-200 hover:text-honey">
                 WhatsApp {site.phoneDisplay}
               </a>
             </li>
             <li className="flex items-start gap-2.5">
               <Mail size={18} className="mt-1 shrink-0 text-honey" aria-hidden="true" />
-              <a href={`mailto:${site.email}`} className="break-all transition-colors duration-200 hover:text-honey">
+              <a href={`mailto:${site.email}`} className="break-all tap transition-colors duration-200 hover:text-honey">
                 {site.email}
               </a>
             </li>
@@ -68,7 +68,7 @@ export function Footer() {
           <ul className="mt-6 flex flex-wrap gap-2.5" aria-label="Social media">
             {site.socials.map(s => (
               <li key={s.label}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-milk/30 bg-milk/10 px-4 py-1.5 text-sm font-semibold transition-colors duration-200 hover:border-honey hover:bg-honey hover:text-cocoa">
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className="tap inline-flex rounded-full border border-milk/30 bg-milk/10 px-4 py-1.5 text-sm font-semibold transition-colors duration-200 hover:border-honey hover:bg-honey hover:text-cocoa">
                   {s.label}
                 </a>
               </li>

@@ -6,7 +6,9 @@ import { PupActor } from '@/components/mascot/PupActor';
 import { PupCursor } from '@/components/cursor/PupCursor';
 import { PawTrail } from '@/components/cursor/PawTrail';
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
+import { ScrollProgress } from '@/components/motion/ScrollProgress';
 import { site } from '@/data/site';
+import { organizationJsonLd, websiteJsonLd } from '@/lib/seo';
 import './globals.css';
 
 const fraunces = Fraunces({ subsets: ['latin'], axes: ['SOFT', 'WONK', 'opsz'], variable: '--font-fraunces', display: 'swap' });
@@ -18,9 +20,10 @@ export const metadata: Metadata = {
   title: { default: `${site.name} — premium teacup puppies in Dubai`, template: `%s | ${site.name}` },
   description: site.description,
   applicationName: site.name,
-  openGraph: { title: site.name, description: site.description, type: 'website', url: site.url, images: [{ url: '/images/brand/logo.png' }] },
-  twitter: { card: 'summary', title: site.name, description: site.description },
-  icons: { icon: '/images/brand/logo.png', apple: '/images/brand/logo.png' },
+  openGraph: { title: site.name, description: site.description, type: 'website', url: '/', siteName: site.name, locale: 'en_AE' },
+  robots: { index: true, follow: true },
+  alternates: { canonical: '/' },
+  twitter: { card: 'summary_large_image', title: site.name, description: site.description },
 };
 
 export const viewport: Viewport = { themeColor: '#fffdf8', width: 'device-width', initialScale: 1 };
@@ -32,6 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="sr-only-focusable fixed top-1 left-1 z-[100] rounded-full bg-cocoa px-4 py-2 text-milk">
           Skip to content
         </a>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationJsonLd(), websiteJsonLd()]) }} />
+        <ScrollProgress />
         <Header />
         <main id="main">{children}</main>
         <Footer />

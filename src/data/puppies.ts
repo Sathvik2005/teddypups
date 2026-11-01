@@ -11,6 +11,13 @@ export const hasVideo = (p: Puppy) => p.media.some(m => m.kind === 'video');
 /** "boy, 3 months" style summary used on cards. */
 export const puppySummary = (p: Puppy) => `${p.gender}, ${p.age}${hasVideo(p) ? ', with video' : ''}`;
 
+/** {src, alt} of a puppy's first photo — for page-header collages. */
+export const photoOf = (slug: string) => {
+  const m = puppyPhoto(puppies.find(p => p.slug === slug)!);
+  return { src: m.kind === 'image' ? m.src : m.poster, alt: m.alt };
+};
+export const SHOWROOM_PHOTO = { src: '/images/contact/27b888_323008bb0f6a41d4bde2a0da7206cd98f003.jpg', alt: 'The apricot teddy bear puppy from our showroom' };
+
 export const heroLineup = [
   'maltipoo-max-male',
   'korean-teacup-maltipoo-female',

@@ -5,9 +5,10 @@ import { notFound } from 'next/navigation';
 import { Check } from 'lucide-react';
 import { getPuppy, puppies, puppyPhoto } from '@/data/puppies';
 import { puppyMessage } from '@/lib/whatsapp';
+import { breadcrumbJsonLd } from '@/lib/seo';
 import { PuppyGallery } from '@/components/puppies/PuppyGallery';
 import { PuppyCard } from '@/components/puppies/PuppyCard';
-import { EnquiryForm } from '@/components/puppies/EnquiryForm';
+import { LazyEnquiryForm } from '@/components/puppies/LazyEnquiryForm';
 import { WhatsAppButton } from '@/components/ui/parts';
 
 export const dynamicParams = false;
@@ -22,7 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description: `Meet ${p.name}, a ${p.age} old ${p.breed} (${p.gender}) available through TeddyPups U.A.E. Real photos, health details and WhatsApp enquiry.`,
     alternates: { canonical: `/puppies/${p.slug}` },
-    openGraph: { title, images: photo.kind === 'image' ? [{ url: photo.src, width: photo.width, height: photo.height }] : undefined },
+    openGraph: { title, url: `/puppies/${p.slug}`, siteName: 'TeddyPups U.A.E.', type: 'website', images: photo.kind === 'image' ? [{ url: photo.src, width: photo.width, height: photo.height, alt: photo.alt }] : undefined },
+    twitter: { card: 'summary_large_image', title, images: photo.kind === 'image' ? [photo.src] : undefined },
   };
 }
 
@@ -66,6 +68,7 @@ export default async function PuppyPage({ params }: { params: Promise<{ slug: st
 
   return (
     <article className="gutter mx-auto max-w-[110rem] pt-28 pb-24 md:pt-36">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Available puppies', path: '/puppies' }, { name: p.name, path: `/puppies/${p.slug}` }])) }} />
       <nav aria-label="Breadcrumb" className="mb-6 text-sm text-cocoa-soft">
         <Link href="/puppies" className="font-semibold underline underline-offset-4 hover:text-toffee-deep">
           Available puppies
@@ -79,7 +82,7 @@ export default async function PuppyPage({ params }: { params: Promise<{ slug: st
         <div className="min-w-0 lg:col-span-7">
           <PuppyGallery media={p.media} name={p.name} />
         </div>
-        <div className="lg:col-span-5">
+        <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
           <span className="badge-available inline-block">Available</span>
           <h1 className="h-section mt-4 !text-5xl md:!text-6xl">{p.name}</h1>
           <dl className="mt-6 divide-y-2 divide-cocoa/15 rounded-3xl border-[3px] border-cocoa bg-milk">
@@ -146,7 +149,7 @@ export default async function PuppyPage({ params }: { params: Promise<{ slug: st
           </div>
         </div>
         <div className="lg:col-span-7">
-          <EnquiryForm heading={`Enquire about ${p.name}`} defaultMessage={`Hi! I'd love to know more about ${p.name === p.breed ? p.breed : `${p.name} (${p.breed})`}.`} />
+          <LazyEnquiryForm heading={`Enquire about ${p.name}`} defaultMessage={`Hi! I'd love to know more about ${p.name === p.breed ? p.breed : `${p.name} (${p.breed})`}.`} />
         </div>
       </section>
 

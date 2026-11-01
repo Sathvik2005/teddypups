@@ -17,7 +17,7 @@ function Chip({ href, active, children }: { href: string; active: boolean; child
       scroll={false}
       aria-current={active ? 'true' : undefined}
       className={cn(
-        'rounded-full border-2 border-cocoa px-4 py-1.5 text-[0.95rem] font-semibold transition-all duration-200 hover:-translate-y-0.5',
+        'tap rounded-full border-2 border-cocoa px-4 py-1.5 text-[0.95rem] font-semibold transition-all duration-200 hover:-translate-y-0.5',
         active ? 'bg-cocoa text-milk shadow-[0_3px_0_var(--color-toffee)]' : 'bg-milk shadow-[0_3px_0_var(--color-cocoa)] hover:bg-honey-soft',
       )}
     >
@@ -72,6 +72,7 @@ export function PuppyCatalogue() {
         </div>
       </div>
 
+      <h2 className="sr-only">Puppies</h2>
       <p role="status" aria-live="polite" className="mt-6 text-cocoa-soft">
         {list.length} {list.length === 1 ? 'puppy' : 'puppies'} available{hasFilter ? ' with these filters' : ''}
       </p>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import { Heart } from 'lucide-react';
 import { families } from '@/data/families';
 import { PhotoWall } from '@/components/gallery/PhotoWall';
@@ -7,11 +8,7 @@ import { PuppyMascot } from '@/components/mascot/PuppyMascot';
 import { PuppyDecorations } from '@/components/decorations/PuppyDecorations';
 import { Reveal } from '@/components/motion/Reveal';
 
-export const metadata: Metadata = {
-  title: 'Happy families',
-  description: 'Nothing makes us happier than seeing our puppies in loving homes. Beautiful moments shared by our amazing clients after welcoming their furry friends.',
-  alternates: { canonical: '/happy-families' },
-};
+export const metadata: Metadata = pageMeta({ title: 'Happy families', description: 'Nothing makes us happier than seeing our puppies in loving homes. Beautiful moments shared by our amazing clients after welcoming their furry friends.', path: '/happy-families' });
 
 export default function HappyFamiliesPage() {
   return (

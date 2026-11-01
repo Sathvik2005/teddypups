@@ -55,7 +55,8 @@ test.describe('desktop puppy cursor', () => {
     await expect(bubble(page)).toHaveText('achoo!');
     await expect(cursor(page)).toHaveAttribute('data-state', 'sneeze');
     await page.mouse.up();
-    await expect(bubble(page)).toHaveAttribute('data-show', 'false', { timeout: 3000 });
+    // the sneeze ends; whatever the puppy says next (e.g. "hm?" once the mouse rests) is no longer "achoo!"
+    await expect(bubble(page)).not.toHaveText('achoo!', { timeout: 3000 });
   });
 
   test('puppy cards say "coming?" and the nested children do not flicker', async ({ page }) => {
@@ -145,11 +146,22 @@ test.describe('paw cursor and chase behaviour', () => {
     await page.goto('/how-it-works');
     await page.mouse.move(400, 500);
     await page.mouse.move(420, 510);
+    // record the pat's peak opacity from inside the page, so the check cannot miss the 560ms animation
+    await page.evaluate(() => {
+      const w = window as unknown as { __patMax: number };
+      w.__patMax = 0;
+      const el = document.querySelector('[data-testid="pup-pat"] > *') as Element;
+      const tick = () => {
+        w.__patMax = Math.max(w.__patMax, Number(getComputedStyle(el).opacity));
+        requestAnimationFrame(tick);
+      };
+      tick();
+    });
     await page.mouse.down();
     await expect(bubble(page)).toHaveText('achoo!');
-    const pat = page.locator('[data-testid="pup-pat"] > *');
-    await expect.poll(() => pat.evaluate(el => Number(getComputedStyle(el).opacity))).toBeGreaterThan(0.1);
     await page.mouse.up();
+    await expect.poll(() => page.evaluate(() => (window as unknown as { __patMax: number }).__patMax)).toBeGreaterThan(0.5);
+    const pat = page.locator('[data-testid="pup-pat"] > *');
     await expect.poll(() => pat.evaluate(el => Number(getComputedStyle(el).opacity)), { timeout: 3000 }).toBeLessThan(0.05);
   });
 

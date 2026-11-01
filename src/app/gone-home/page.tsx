@@ -1,19 +1,16 @@
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import Image from 'next/image';
 import { goneHome } from '@/data/gone-home';
 import { PageIntro, ButtonLink, PupStop } from '@/components/ui/parts';
 import { Reveal } from '@/components/motion/Reveal';
 
-export const metadata: Metadata = {
-  title: 'Gone home',
-  description: 'Puppies who have already joined loving families. Looking for one just like them? Tell us — we will help you find your match.',
-  alternates: { canonical: '/gone-home' },
-};
+export const metadata: Metadata = pageMeta({ title: 'Gone home', description: 'Puppies who have already joined loving families. Looking for one just like them? Tell us — we will help you find your match.', path: '/gone-home' });
 
 export default function GoneHomePage() {
   return (
     <>
-      <PageIntro title="Puppies who have gone home">
+      <PageIntro title="Puppies who have gone home" photos={[{ src: goneHome[0].src, alt: '' }, { src: goneHome[3].src, alt: '' }, { src: goneHome[9].src, alt: '' }]}>
         Every puppy here has already joined a loving family. Looking for one just like them? Tell us — we&apos;ll help you find your match.
       </PageIntro>
       <div className="gutter relative mx-auto max-w-[110rem] pb-12">

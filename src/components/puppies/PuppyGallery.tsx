@@ -26,9 +26,9 @@ export function PuppyGallery({ media, name }: { media: PuppyMedia[]; name: strin
       className="rounded-[2rem] outline-offset-4"
     >
       <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border-[3px] border-cocoa bg-honey-soft shadow-[0_6px_0_var(--color-cocoa)] sm:aspect-[4/5]">
-        <div key={i} className="absolute inset-0 animate-[tp-pop_.35s_ease-out]">
+        <div key={i} className={cn("absolute inset-0", i > 0 && "animate-[tp-pop_.35s_ease-out]")}>
           {cur.kind === 'image' ? (
-            <Image src={cur.src} alt={cur.alt} fill priority sizes="(min-width:1024px) 55vw, 100vw" className="object-contain" />
+            <Image src={cur.src} alt={cur.alt} fill priority fetchPriority="high" sizes="(min-width:1024px) 55vw, 100vw" className="object-contain" />
           ) : (
             <video key={cur.src} src={cur.src} poster={cur.poster} controls playsInline preload="metadata" aria-label={cur.alt} className="h-full w-full object-contain" />
           )}

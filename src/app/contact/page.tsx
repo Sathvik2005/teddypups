@@ -1,16 +1,14 @@
 import type { Metadata } from 'next';
+import { pageMeta } from '@/lib/seo';
 import Image from 'next/image';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { site } from '@/data/site';
 import { PageIntro } from '@/components/ui/parts';
 import { IntroMascot } from '@/components/mascot/IntroMascot';
-import { EnquiryForm } from '@/components/puppies/EnquiryForm';
+import { photoOf, SHOWROOM_PHOTO } from '@/data/puppies';
+import { LazyEnquiryForm } from '@/components/puppies/LazyEnquiryForm';
 
-export const metadata: Metadata = {
-  title: 'Visit & contact',
-  description: 'Visit our Downtown Dubai showroom, call or WhatsApp us, or send an enquiry about a puppy.',
-  alternates: { canonical: '/contact' },
-};
+export const metadata: Metadata = pageMeta({ title: 'Visit & contact', description: 'Visit our Downtown Dubai showroom, call or WhatsApp us, or send an enquiry about a puppy.', path: '/contact' });
 
 const interests = [
   'General enquiry',
@@ -33,12 +31,12 @@ const box = 'rounded-3xl border-[3px] border-cocoa bg-milk p-6 shadow-[0_5px_0_v
 export default function ContactPage() {
   return (
     <>
-      <PageIntro title="Get in touch with us" mascot={<IntroMascot name="teddy" wave say="come say hi!" label="Teddy waving a friendly hello" />}>
+      <PageIntro title="Get in touch with us" photos={[SHOWROOM_PHOTO, photoOf('copper-male'), photoOf('shitzu-female')]} mascot={<IntroMascot name="teddy" wave say="come say hi!" label="Teddy waving a friendly hello" />}>
         Have questions about our puppies or adoption process? Fill out the form, and our team will get back to you promptly. Whether ready to adopt or just seeking info, we&apos;d love to hear from you!
       </PageIntro>
       <div className="gutter mx-auto grid max-w-[110rem] gap-10 pb-24 lg:grid-cols-12">
         <div className="lg:col-span-7">
-          <EnquiryForm interests={interests} defaultMessage="Hi! I'd love to know more about your puppies." heading="Contact form" />
+          <LazyEnquiryForm interests={interests} defaultMessage="Hi! I'd love to know more about your puppies." heading="Contact form" />
         </div>
         <aside aria-label="Contact details" className="space-y-5 lg:col-span-5">
           <div className={box}>
